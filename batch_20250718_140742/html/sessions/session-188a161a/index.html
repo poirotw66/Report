@@ -38,32 +38,29 @@
     <meta name="msapplication-TileColor" content="#3a86ff">
 </head>
 <body class="template-professional hugo-site">
-    <div class="container">
+    <div class="site-wrapper">
         <header class="site-header">
-    <nav class="navbar">
-        <div class="nav-brand">
-            <a href="../../">NeoTrendHub 會議報告</a>
-        </div>
-        <div class="nav-menu">
-            
-            <a href="../../" class="nav-link">首頁</a>
-            
-            <a href="../../seminars/" class="nav-link">研討會</a>
-            
-            <a href="../../categories/" class="nav-link">分類</a>
-            
-            <a href="../../tags/" class="nav-link">標籤</a>
-            
-        </div>
-        <div class="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
-</header>
+            <nav class="navbar container">
+                <div class="nav-brand">
+                    <a href="../../index.html">
+                        <span class="brand-icon">🚀</span>
+                        <span class="brand-text">NeoTrendHub</span>
+                    </a>
+                </div>
+                <div class="nav-menu">
+                    <a href="../../index.html" class="nav-link">首頁</a>
+                    <a href="../enhanced.html" class="nav-link">研討會</a>
+                    <a href="../../categories/trends.html" class="nav-link">趨勢分析</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </header>
 
-        <main class="content" id="main-content" role="main">
+        <main class="main-content" id="main-content" role="main">
             
 <article class="single-report">
     <header class="report-header section-block meeting-info">
@@ -298,26 +295,125 @@
 
         </main>
 
+        <!-- Footer -->
         <footer class="site-footer">
-    <div class="footer-content">
-        <div class="footer-info">
-            <p>&copy; 2025 NeoTrendHub 會議報告. 由 NeoTrendHub 驅動。</p>
-            <p>AI 驅動的會議報告分析平台</p>
-        </div>
-        <div class="footer-links">
-            <a href="../../">首頁</a>
-            <a href="../../seminars/">研討會</a>
-            <a href="../../categories/">分類</a>
-            <a href="../../tags/">標籤</a>
-        </div>
-    </div>
-</footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-brand">
+                            <span class="brand-icon">🚀</span>
+                            <span class="brand-text">NeoTrendHub</span>
+                        </div>
+                        <p class="footer-description">
+                            AI 驅動的技術趨勢分析平台，為您提供最前沿的技術洞察和專業會議報告。
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">探索內容</h4>
+                        <ul class="footer-links">
+                            <li><a href="../enhanced.html">技術會議</a></li>
+                            <li><a href="../../categories/trends.html">趨勢分析</a></li>
+                            <li><a href="#dashboard">數據儀表板</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">技術趨勢</h4>
+                        <ul class="footer-links">
+                            <li><a href="#insights">AI Agent</a></li>
+                            <li><a href="#insights">大模型優化</a></li>
+                            <li><a href="#insights">多模態 AI</a></li>
+                            <li><a href="#insights">AI 安全治理</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4 class="footer-title">關於我們</h4>
+                        <ul class="footer-links">
+                            <li><a href="#about">平台介紹</a></li>
+                            <li><a href="#contact">聯絡我們</a></li>
+                            <li><a href="#privacy">隱私政策</a></li>
+                            <li><a href="#terms">使用條款</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; 2025 NeoTrendHub. 版權所有</p>
+                    </div>
+                    <div class="footer-meta">
+                        <span>由 AI 驅動</span>
+                        <span>•</span>
+                        <span>持續更新</span>
+                        <span>•</span>
+                        <span>專業分析</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 
-    
-    <script src="../../js/main.js" defer></script>
 
-    
-    <script>document.documentElement.classList.remove('no-js');</script>
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        // Remove no-js class immediately
+        document.documentElement.classList.remove('no-js');
+
+        // Navigation functionality
+        function initializeNavigation() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+            }
+        }
+
+        // Smooth scrolling functionality
+        function initializeSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Initialize all functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeNavigation();
+            initializeSmoothScrolling();
+        });
+    </script>
 </body>
 </html>
