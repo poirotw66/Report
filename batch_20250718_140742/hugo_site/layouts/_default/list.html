@@ -1,0 +1,41 @@
+{{ define "main" }}
+<div class="list-page">
+    <header class="page-header section-block">
+        <h1 class="page-title">{{ .Title }}</h1>
+        {{ if .Content }}
+        <div class="page-description">
+            {{ .Content }}
+        </div>
+        {{ end }}
+        <div class="page-stats">
+            <span class="stat">共 {{ len .Pages }} 篇報告</span>
+        </div>
+    </header>
+
+    <div class="reports-list">
+        {{ range .Pages }}
+        <article class="report-item section-block">
+            <h2 class="report-title">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h2>
+            <div class="report-meta">
+                <span class="seminar">{{ .Params.seminar }}</span>
+                <span class="category">{{ .Params.category | default "主題演講" }}</span>
+                <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+            </div>
+            <div class="report-excerpt">
+                {{ .Summary | truncate 200 }}
+            </div>
+            {{ if .Params.tags }}
+            <div class="report-tags">
+                {{ range .Params.tags }}
+                <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+            <a href="{{ .Permalink }}" class="read-more">閱讀全文 →</a>
+        </article>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

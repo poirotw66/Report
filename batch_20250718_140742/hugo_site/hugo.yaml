@@ -1,0 +1,51 @@
+baseURL: http://localhost
+contentDir: content
+disableKinds: []
+enableGitInfo: false
+enableRobotsTXT: true
+hasCJKLanguage: true
+languageCode: zh-tw
+layoutDir: layouts
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+menu:
+  main:
+  - name: 首頁
+    url: ../html/index.html
+    weight: 10
+  - name: 研討會
+    url: ../html/sessions/enhanced.html
+    weight: 20
+  - name: 分類
+    url: ../html/categories/trends.html
+    weight: 30
+  - name: 標籤
+    url: /tags/
+    weight: 40
+params:
+  description: AI 驅動的會議報告分析平台
+  features:
+    block_based_design: true
+    dark_mode_support: true
+    multi_language: true
+    responsive_layout: true
+  generator: NeoTrendHub Hugo Generator
+  style_config:
+    layout_type: business
+    primary_color: '#3a86ff'
+    secondary_color: '#00bfff'
+    theme_variant: professional
+    typography: formal
+  template_style: professional
+  version: 1.0.0
+permalinks:
+  posts: /posts/:slug/
+publishDir: public
+staticDir: static
+taxonomies:
+  category: categories
+  seminar: seminars
+  tag: tags
+title: NeoTrendHub 會議報告

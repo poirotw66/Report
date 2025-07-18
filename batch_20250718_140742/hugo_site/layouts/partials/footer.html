@@ -1,0 +1,76 @@
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section footer-about">
+            <h3>{{ .Site.Title }}</h3>
+            <p>{{ .Site.Params.description }}</p>
+            <div class="footer-stats">
+                <div class="stat">
+                    <span class="stat-number">{{ len .Site.RegularPages }}</span>
+                    <span class="stat-label">報告</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">{{ len .Site.Taxonomies.seminars }}</span>
+                    <span class="stat-label">研討會</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">{{ len .Site.Taxonomies.categories }}</span>
+                    <span class="stat-label">分類</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-section footer-navigation">
+            <h4>快速導航</h4>
+            <ul class="footer-links">
+                {{ range .Site.Menus.main }}
+                <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+
+        <div class="footer-section footer-categories">
+            <h4>熱門分類</h4>
+            <ul class="footer-links">
+                {{ range first 5 .Site.Taxonomies.categories.ByCount }}
+                <li>
+                    <a href="{{ .Page.Permalink }}">
+                        {{ .Page.Title }} ({{ .Count }})
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+
+        <div class="footer-section footer-recent">
+            <h4>最新報告</h4>
+            <ul class="footer-links">
+                {{ range first 3 .Site.RegularPages }}
+                <li>
+                    <a href="{{ .Permalink }}" title="{{ .Title }}">
+                        {{ .Title | truncate 40 }}
+                    </a>
+                    <small>{{ .Date.Format "01/02" }}</small>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-copyright">
+            <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. 由 NeoTrendHub AI 驅動。</p>
+            <p class="footer-tech">
+                使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 建構 |
+                版本 {{ .Site.Params.version | default "1.0.0" }}
+            </p>
+        </div>
+
+        <div class="footer-actions">
+            <button class="back-to-top" id="back-to-top" aria-label="回到頂部">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="18,15 12,9 6,15"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+</footer>

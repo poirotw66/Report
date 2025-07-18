@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-tw" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>DLRover在万卡规模大模型训练中的稳定性实践 - NeoTrendHub 會議報告</title>
+    <meta name="description" content="AI 驅動的會議報告分析平台">
+    <meta name="generator" content="Hugo 0.147.9 - NeoTrendHub">
+    <meta name="author" content="NeoTrendHub AI">
+
+    
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://localhost/sessions/session-6db34cc7/">
+    <meta property="og:title" content="DLRover在万卡规模大模型训练中的稳定性实践 - NeoTrendHub 會議報告">
+    <meta property="og:description" content="AI 驅動的會議報告分析平台">
+
+    
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://localhost/sessions/session-6db34cc7/">
+    <meta property="twitter:title" content="DLRover在万卡规模大模型训练中的稳定性实践 - NeoTrendHub 會議報告">
+    <meta property="twitter:description" content="AI 驅動的會議報告分析平台">
+
+    
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="preload" href="../../css/styles.css" as="style">
+
+    
+    <link rel="canonical" href="http://localhost/sessions/session-6db34cc7/">
+    
+
+    
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+
+    
+    <meta name="theme-color" content="#3a86ff">
+    <meta name="msapplication-TileColor" content="#3a86ff">
+</head>
+<body class="template-professional hugo-site">
+    <div class="container">
+        <header class="site-header">
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="../../">NeoTrendHub 會議報告</a>
+        </div>
+        <div class="nav-menu">
+            
+            <a href="../../" class="nav-link">首頁</a>
+            
+            <a href="../../seminars/" class="nav-link">研討會</a>
+            
+            <a href="../../categories/" class="nav-link">分類</a>
+            
+            <a href="../../tags/" class="nav-link">標籤</a>
+            
+        </div>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+</header>
+
+        <main class="content" id="main-content" role="main">
+            
+<article class="single-report">
+    <header class="report-header section-block meeting-info">
+        <h1 class="report-title">DLRover在万卡规模大模型训练中的稳定性实践</h1>
+        <div class="report-meta">
+            <div class="meta-item">
+                <strong>研討會：</strong> 202506 AICon Beijing
+            </div>
+            <div class="meta-item">
+                <strong>類型：</strong> 主題演講
+            </div>
+            <div class="meta-item">
+                <strong>日期：</strong> 2025年07月18日
+            </div>
+            
+        </div>
+        
+        <div class="report-tags">
+            
+            <a href="../../tags/%E6%95%B8%E6%93%9A" class="tag">數據</a>
+            
+            <a href="../../tags/ai" class="tag">AI</a>
+            
+            <a href="../../tags/devops" class="tag">DevOps</a>
+            
+            <a href="../../tags/%E5%BE%8C%E7%AB%AF" class="tag">後端</a>
+            
+            <a href="../../tags/%E5%BE%AE%E6%9C%8D%E5%8B%99" class="tag">微服務</a>
+            
+            <a href="../../tags/202506-aicon-beijing" class="tag">202506 AICon Beijing</a>
+            
+            <a href="../../tags/%E4%B8%BB%E9%A1%8C%E6%BC%94%E8%AC%9B" class="tag">主題演講</a>
+            
+        </div>
+        
+    </header>
+
+    <div class="report-content">
+        <h2 id="會議資訊">會議資訊</h2>
+<ul>
+<li><strong>研討會：</strong> 202506 AICon Beijing</li>
+<li><strong>類型：</strong> 主題演講</li>
+<li><strong>來源：</strong> <a href="https://aicon.infoq.cn/2025/beijing/presentation/6483">https://aicon.infoq.cn/2025/beijing/presentation/6483</a></li>
+</ul>
+<hr>
+<h2 id="報告內容">報告內容</h2>
+<p>好的，這是一份根據您提供的PPT內容，針對「DLRover在萬卡規模大模型訓練中的穩定性實踐」主題的綜合分析報告。</p>
+<hr>
+<h2 id="綜合分析報告dlrover在萬卡規模大模型訓練中的穩定性實踐">綜合分析報告：DLRover在萬卡規模大模型訓練中的穩定性實踐</h2>
+<p><strong>會議標題：</strong> DLRover在萬卡規模大模型訓練中的穩定性實踐
+<strong>研討會：</strong> 202506 AICon Beijing 主題演講
+<strong>演講人：</strong> 馬介悅，螞蟻金服高級專家</p>
+<hr>
+<h3 id="1-會議概述和核心內容">1. 會議概述和核心內容</h3>
+<p>本次「202506 AICon Beijing」主題演講由螞蟻金服高級專家馬介悅帶來，聚焦於**「基於DLRover的訓練穩定性實踐」<strong>。在當前人工智能發展的黃金時代，大型語言模型（LLMs）正以前所未有的速度擴展其規模，從數十億到數萬億參數，並依循「擴展定律（Scaling Law）」持續增長。這股趨勢雖為AI應用帶來了巨大潛力（如Sora和ChatGPT），卻也對底層AI基礎設施提出了嚴峻的「端到端挑戰」，其中最核心的痛點便是</strong>大規模分布式訓練的穩定性**。</p>
+<p>簡報深刻揭示了這一挑戰的嚴重性：隨著訓練規模達到萬卡級別（例如潛在的Llama 4或Grok模型可能部署在10萬塊H200加速器上），即使單一加速器的故障率維持不變，整個分布式集群的<strong>整體故障率也會呈指數級上升</strong>。數據顯示，在訓練中斷原因中，「NCCL timeout」佔比高達10.1%，其他如ECC errors、NVLink errors等硬體及網絡問題也佔據相當比例。這導致「有效訓練時長」大幅縮水，大量昂貴的GPU資源被浪費在故障恢復、重計算和人工干預上。</p>
+<p>為應對此關鍵挑戰，螞蟻金服推出了 <strong>DLRover</strong> 智能訓練服務平台。本次演講的核心內容，便是詳細介紹DLRover如何通過其三大核心特性——<strong>訓練加速、自動資源配置和提高訓練穩定性</strong>——來解決上述問題。DLRover的解決方案不僅涵蓋了分布式訓練中的多層次容錯、智能故障檢測與診斷，還引入了 <strong>Flash Checkpoint</strong> 技術以提升檢查點效率，以及 <strong>XPUTimer</strong> 可觀測工具進行精確的性能分析和問題定位。最終目標是顯著提升萬卡規模分布式訓練的效率和可靠性，將有效訓練時長提升至接近理想狀態。</p>
+<h3 id="2-技術要點和實現細節">2. 技術要點和實現細節</h3>
+<p>DLRover平台集成了一系列創新技術與精巧設計，共同構建了一個穩健且高效的大模型訓練基礎設施。</p>
+<h4 id="21-dlrover核心架構與能力">2.1 DLRover核心架構與能力</h4>
+<p>DLRover作為一個智能訓練服務平台，其核心技術點包括：</p>
+<ul>
+<li><strong>彈性訓練（Elastic Training）：</strong> 這是DLRover的基石能力。它深度擴展了PyTorch的TorchElastic機制，實現了在訓練過程中根據集群資源變化或節點故障<strong>動態增減訓練節點</strong>的能力。通過與診斷模塊（聯動XPUTimer、訓練框架和SRE運維系統）協同，DLRover能提前發現並自動處理異常，甚至針對搜推業務或LLM訓練中的負載不均衡問題（如MFU下降）進行動態調整，實現<strong>全天候無人值守</strong>的訓練。關鍵在於資源的動態分配、節點的動態增刪以及數據的動態切分。</li>
+<li><strong>組網與預檢查（Networking &amp; Precheck）：</strong> 為規避潛在的基礎設施問題，DLRover在訓練啟動前和運行時進行嚴格的預檢查。這包括：
+<ul>
+<li><strong>計算節點檢查：</strong> 通過矩陣乘（matmul）等算子測試，快速排除單機計算異常。</li>
+<li><strong>通信節點檢查：</strong> 採用兩輪NCCL測試（兩兩組網）來識別「慢速組」或故障節點，即使在大型集群中也能精確定位問題源。</li>
+<li><strong>基礎設施預檢查：</strong> 運行指定腳本對硬體、環境、網絡、作業系統進行檢查，確保資源交付質量。</li>
+</ul>
+</li>
+<li><strong>訓練容錯（Training Fault Tolerance）：</strong> DLRover提供了多層次的容錯機制：
+<ul>
+<li><strong>進程級容錯：</strong> 自動探測並重啟訓練進程中的異常，記錄詳細錯誤信息。</li>
+<li><strong>節點級容錯：</strong> 當節點故障時，自動重調度異常Pod，確保訓練任務能夠恢復。</li>
+<li><strong>Master容錯：</strong> 保障控制節點自身的可靠性，避免單點故障。</li>
+</ul>
+</li>
+<li><strong>資源管理：</strong> DLRover基於業界領先的分布式平台如Kubernetes (k8s) 和Ray，對底層資源（pod, actor）進行統一管理，包括創建、刪除、重調度、擴縮容等操作，實現了對異構計算資源的靈活調配。</li>
+<li><strong>ATrainer與ATorch：</strong> 作為DLRover內部的優化組件，ATrainer提供統一訓練入口兼容不同框架，而ATorch則專注於計算、顯存和通信層面的優化，進一步提升訓練效率。</li>
+</ul>
+<h4 id="22-flash-checkpoint技術">2.2 Flash Checkpoint技術</h4>
+<p>傳統的檢查點（Checkpoint）操作是分布式訓練中不可或缺但又效率低下的環節，它會導致訓練停滯（stall），且恢復時間較長。Flash Checkpoint（FlashCkpt）技術旨在解決這些痛點：</p>
+<ul>
+<li><strong>異步持久化：</strong> 其核心創新在於將模型和優化器的狀態（通常是大量的Tensor數據）從GPU內存或Tensor分片，先通過PCIe高速同步到<strong>Launcher主進程的共享內存緩衝區</strong>。隨後，Launcher主進程再將這些數據<strong>異步刷寫</strong>到持久化存儲（如磁盤、NAS或CPFS）。這種「先存內存，再異步寫盤」的策略極大地降低了檢查點操作對訓練主線程的阻塞時間，幾乎實現了<strong>零停滯</strong>。</li>
+<li><strong>斷點續訓與內存熱加載：</strong> 當訓練發生故障（如進程崩潰）時，DLRover的ElasticAgent會自動觸發保存事件，將當前狀態異步持久化。在訓練重啟後，Worker啟動器可以直接從共享內存中<strong>熱加載</strong>數據，省去了從遠端存儲讀取和反序列化的時間，大幅加速了恢復過程。</li>
+<li><strong>框架兼容性：</strong> FlashCkpt設計上具有良好的兼容性，支持主流的分布式訓練框架，包括DDP、FSDP、DeepSpeed和Megatron等，這使其在廣泛的LLM訓練場景中具備實用性。</li>
+</ul>
+<h4 id="23-xputimer可觀測工具">2.3 XPUTimer可觀測工具</h4>
+<p>XPUTimer是DLRover智能診斷能力的關鍵組件，專為大規模分布式訓練中的運行中斷（Error）、運行掛起（Hang）和運行變慢（Straggler）問題而設計。</p>
+<ul>
+<li><strong>運行時插樁/跟踪（Tracing）：</strong> XPUTimer通過巧妙地利用<code>LD_PRELOAD</code>機制，在運行時動態加載<code>libevent_hook.so</code>庫。這個庫能夠<strong>截獲底層的CUDA運行時API（<code>cudart</code>）、cuBLAS庫以及Python層面的函數調用</strong>，實現對關鍵算子和通信事件的精確跟踪。它使用<code>cudaEvent</code>進行微秒級的計時，確保數據的高精度。</li>
+<li><strong>性能分析（Profiling Timeline）：</strong> XPUTimer能夠生成詳細的時間線（Timeline），展示GPU計算流、GPU通信流和CPU線程在訓練步驟中的時間開銷。這有助於識別性能瓶頸，例如通信時間遠超計算時間（常見的NCCL瓶頸），或存在不必要的同步、數據阻塞和閒置時間。它能細化到FlashAttention、cuBLAS、NCCL等具體操作的耗時。</li>
+<li><strong>棧/火焰圖採集與診斷：</strong> XPUTimer能夠採集運行時的調用棧信息，並具備<strong>棧合併</strong>功能，將Python、C/System、Torch/NCCL等多層次的棧信息整合，生成火焰圖。這使得開發者可以直觀地分析時間開銷分佈，快速定位到導致程序掛起或變慢的具體代碼路徑和操作。
+<ul>
+<li><strong>阻塞檢測：</strong> 通過比對所有Rank的調用堆棧，並針對NCCL通信進行二分法和通信域診斷（如NCCL RAS），精確判斷是單機問題還是集體通信阻塞。</li>
+<li><strong>慢速檢測：</strong> 監測訓練吞吐量、Kernel FLOPs、NCCL帶寬等宏觀和微觀指標，一旦發現下降，結合時間線和棧信息進行深層次分析。</li>
+</ul>
+</li>
+<li><strong>技術優勢：</strong> XPUTimer實現了<strong>用戶無感</strong>（無需修改訓練代碼，與框架解耦）、<strong>低損耗高精度</strong>、<strong>高數據效率</strong>和<strong>輕量級友好</strong>的特點，使其成為大規模AI訓練中不可或缺的「眼睛和耳朵」。</li>
+</ul>
+<h3 id="3-商業價值和應用場景">3. 商業價值和應用場景</h3>
+<p>DLRover平台及其核心組件所帶來的商業價值是顯著且多層次的，它直接關係到大規模AI投入的成本效益、研發效率和業務迭代速度。</p>
+<h4 id="31-核心商業價值">3.1 核心商業價值</h4>
+<ul>
+<li><strong>顯著降低GPU算力成本：</strong> 數據顯示，DLRover將萬卡規模的有效訓練時長提升至<strong>99%</strong>。這意味著絕大部分昂貴的GPU算力被用於有效的模型訓練，極大地減少了因故障、停滯和重試而浪費的計算資源。對於動輒投入數千萬乃至數億美元建設的AI算力集群而言，這代表著巨大的成本節約。</li>
+<li><strong>加速AI模型研發和迭代週期：</strong> 訓練中斷和故障排查是導致AI項目延期的主要原因之一。DLRover實現的「自動故障處理」和「無需人工干預」意味著模型訓練可以持續、穩定地運行，大大縮短了模型從實驗到部署的時間，加快了產品和服務的創新迭代速度。</li>
+<li><strong>提升運維效率，降低人力成本：</strong> 傳統上，大規模分布式訓練的穩定性依賴於大量的SRE/AI Infra工程師進行人工監控、故障排查和重啟。DLRover的自動化容錯、故障檢測和彈性訓練能力，極大地解放了人力，讓工程師能將精力投入到更高價值的優化工作中，而非繁瑣的救火任務。</li>
+<li><strong>賦能更大規模的模型訓練：</strong> 在DLRover出現之前，萬卡甚至十萬卡規模的分布式訓練因其極高的故障率而幾乎無法穩定完成。DLRover通過提供前所未有的穩定性，使得訓練超大規模基礎模型（如萬億參數級別）成為可能，拓展了AI探索的邊界。</li>
+<li><strong>提升企業AI基礎設施的競爭力：</strong> 擁有一個高效、穩定且可擴展的AI訓練基礎設施，是企業在AI時代保持競爭力的關鍵。DLRover的成功實踐，為螞蟻金服及其他潛在用戶提供了這樣的底層能力。</li>
+</ul>
+<h4 id="32-典型應用場景">3.2 典型應用場景</h4>
+<p>DLRover的設計和優勢使其特別適用於以下高需求場景：</p>
+<ul>
+<li><strong>大規模語言模型（LLM）的預訓練和微調：</strong> 這是簡報中強調的核心場景，例如Llama-7B模型的訓練案例。LLM訓練對算力規模和穩定性要求極高，任何中斷都意味著巨大的資源浪費，DLRover在此展現了其核心價值。</li>
+<li><strong>通用AI基礎模型的訓練：</strong> 無論是文本、圖像、音頻還是多模態的基礎模型，只要訓練規模龐大且需要長期穩定運行，DLRover都能提供強大的支持。</li>
+<li><strong>推薦系統和搜索廣告模型的持續訓練：</strong> 這些業務對模型更新頻率和實時性有較高要求，DLRover的彈性訓練和高效Checkpoint能力，確保了模型能夠持續、不間斷地在最新數據上進行訓練和更新。</li>
+<li><strong>任何需要大規模異構集群進行分布式深度學習的場景：</strong> DLRover支持昇騰910、沐曦、NVIDIA等不同加速器，這意味著它可以在多種硬體環境下提供穩定的訓練服務，提升了其通用性和普適性。</li>
+</ul>
+<h3 id="4-創新亮點和技術突破">4. 創新亮點和技術突破</h3>
+<p>DLRover及其組件不僅僅是對現有技術的簡單整合，更體現了在超大規模分布式AI訓練穩定性方面的一系列顯著創新和技術突破。</p>
+<ul>
+<li><strong>萬卡規模99%有效訓練時長的里程碑式突破：</strong> 這無疑是本次演講中最引人注目的數據。在如此龐大且複雜的分布式集群中，將有效訓練時長從低於50%（常見情況）提升到99%，這是一個巨大的工程壯舉，它證明了DLRover在故障預防、容錯和快速恢復方面的領先能力，突破了大規模訓練穩定性的業界瓶頸。</li>
+<li><strong>DLRover的智能化與自動化水平：</strong>
+<ul>
+<li><strong>全鏈路自動化：</strong> 從預檢查、自動資源配置、動態擴縮容、多層次故障探測與自動容錯，到無人值守的訓練恢復，DLRover實現了訓練生命週期的端到端自動化。</li>
+<li><strong>智能化診斷與調度：</strong> 引入「DLRover Brain」服務，通過對訓練指標（如MFU下降、負載不均衡）的智能分析，自動生成資源計劃和優化策略，將以往需要人工經驗判斷的問題交由系統處理。</li>
+</ul>
+</li>
+<li><strong>Flash Checkpoint的異步非阻塞檢查點機制：</strong> 傳統檢查點通常是訓練過程中的「同步點」，會導致GPU計算停滯。Flash Checkpoint通過將數據暫存於共享內存，再異步持久化到外部存儲，成功地將檢查點操作從「同步阻塞」轉變為「異步非阻塞」，這是一個關鍵的性能優化突破，尤其對於高頻檢查點的需求，減少了大量不必要的等待時間。</li>
+<li><strong>XPUTimer的無侵入式、高精度、全方位可觀測性：</strong>
+<ul>
+<li><strong>無代碼入侵：</strong> XPUTimer利用<code>LD_PRELOAD</code>這種操作系統級別的機制，無需修改訓練代碼，即可對底層庫和Python調用進行插樁和監控。這大大降低了其集成成本和對訓練代碼的影響，實現了真正的「用戶無感」。</li>
+<li><strong>微秒級精確診斷：</strong> 使用<code>cudaEvent</code>進行計時，確保了對算子和通信操作微秒級的精確度。這種精度對於定位毫秒級的性能瓶頸和偶發性故障至關重要。</li>
+<li><strong>故障根因分析能力：</strong> 結合時間線、火焰圖和棧信息，XPUTimer不僅能發現問題（掛起、變慢），還能深入分析問題的根源（例如，是數據加載慢、同步開銷大、還是底層通信庫問題），大大加速了問題解決的效率。</li>
+</ul>
+</li>
+<li><strong>對異構加速器及主流框架的廣泛支持：</strong> DLRover不僅限於NVIDIA GPU，還支持昇騰、沐曦等國內外多種加速器，以及DDP、FSDP、DeepSpeed、Megatron等多種主流分布式訓練框架。這表明其技術設計具備良好的通用性和適配性，能夠在多元化的AI算力生態中發揮作用。</li>
+</ul>
+<h3 id="5-趨勢洞察和未來展望">5. 趨勢洞察和未來展望</h3>
+<p>DLRover的實踐不僅展示了螞蟻金服在AI基礎設施領域的深厚實力，也為整個行業的AI發展趨勢提供了重要洞察。</p>
+<h4 id="51-趨勢洞察">5.1 趨勢洞察</h4>
+<ul>
+<li><strong>規模化成為AI發展的必然：</strong> 「擴展定律」的持續生效，意味著AI模型將不可避免地向更大規模、更多參數、更多數據的方向發展。這將使得分布式訓練，尤其是在異構超大規模集群上的穩定性成為決定性的瓶頸。DLRover的成功，預示著解決這一瓶頸將是未來AI基礎設施發展的核心命題。</li>
+<li><strong>AI基礎設施的軟體定義和智能化：</strong> 硬體層面的創新固然重要，但軟體層面的智能化管理和優化將是提升整體效率和可靠性的關鍵。DLRover所體現的自動化資源管理、智能診斷、彈性容錯，正是AI基礎設施從「硬體堆疊」向「軟體定義」和「AI驅動」轉變的縮影。</li>
+<li><strong>全生命週期管理的重要性：</strong> 從模型的數據準備、預訓練、微調，到故障診斷、恢復和性能優化，一個端到端的、集成化的管理平台，而非單一工具的堆砌，是未來AI工程化的趨勢。DLRover正是提供了這樣一個從預檢查到運行時監控的全鏈路解決方案。</li>
+<li><strong>可觀測性成為AI系統的標配：</strong> 隨著系統複雜性的增加，僅僅知道「系統崩潰了」遠遠不夠。像XPUTimer這樣能深入到Kernel層、提供微秒級精度和完整棧信息的「白盒」可觀測工具，將成為解決複雜分布式AI系統問題的必備利器。</li>
+<li><strong>開放協作與生態共建：</strong> DLRover的開源，並成為LF AI &amp; Data基金會的特色項目，這反映出大型科技公司正在將其內部沉澱的關鍵技術開源貢獻給社區，以促進整個AI生態的發展。這也是未來基礎設施技術加速進步的重要模式。</li>
+</ul>
+<h4 id="52-未來展望">5.2 未來展望</h4>
+<ul>
+<li><strong>AI for AI Infra的深入應用：</strong> DLRover中提到的「Brain Service」和「智能訓練服務目標」暗示著，未來會有更多的AI技術被應用於優化和管理AI基礎設施本身。例如，AI模型可以學習歷史故障模式，預測潛在風險；或根據訓練進度自動調整並行策略，實現更精細的資源調配。</li>
+<li><strong>更廣泛的場景適應性與異構支持：</strong> 隨著新型AI硬體（如類腦芯片、光子計算等）的出現，DLRover這類通用且框架解耦的穩定性平台將更容易適配新技術，加速其在實際生產中的落地。</li>
+<li><strong>「綠色AI」的推進：</strong> DLRover提出的「讓大型AI模型的分布式訓練變得容易、穩定、快速和綠色」的願景中，「綠色」暗示著對能源效率和可持續性的重視。通過提升有效訓練時長，DLRover本身就在減少計算資源的浪費，這對大型AI訓練的碳足跡有積極影響。未來，可能會有更直接的節能優化技術集成進類似平台。</li>
+<li><strong>普惠AI的基石：</strong> 通過將複雜的大模型訓練過程變得穩定、高效且易於管理，DLRover正在降低訓練和部署大規模AI模型的技術門檻。這將使更多企業和研究機構能夠利用最先進的AI技術，加速各行業的數字化轉型，推動AI技術的普及和普惠。</li>
+</ul>
+<p>總而言之，DLRover的穩定性實踐是當前AI發展浪潮中一個極具戰略意義的突破。它不僅有效解決了萬卡級別大模型訓練的關鍵痛點，更預示著AI基礎設施將走向高度自動化、智能化和普惠化的未來，為人工智能技術的廣泛應用奠定堅實基石。</p>
+<hr>
+<div style="text-align: center; color: #666; font-size: 0.9em; margin-top: 2em;">
+<em>本報告由 NeoTrendHub 自動生成 | 生成時間：2025-07-18 14:09:16</em>
+</div>
+
+    </div>
+
+    <footer class="report-footer section-block">
+        <div class="report-navigation">
+            
+            <a href="http://localhost/sessions/session-f58850fb/" class="nav-link prev">
+                <span class="nav-label">上一篇</span>
+                <span class="nav-title">GenAI 应用时代，开发思想如何变革？</span>
+            </a>
+            
+
+            
+            <a href="http://localhost/sessions/session-25c654c8/" class="nav-link next">
+                <span class="nav-label">下一篇</span>
+                <span class="nav-title">DeepResearch如何在企业内落地</span>
+            </a>
+            
+        </div>
+
+        <div class="report-info">
+            <p><em>本報告由 NeoTrendHub 自動生成 | 生成時間：2025-07-18 00:00:00</em></p>
+        </div>
+    </footer>
+</article>
+
+        </main>
+
+        <footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-info">
+            <p>&copy; 2025 NeoTrendHub 會議報告. 由 NeoTrendHub 驅動。</p>
+            <p>AI 驅動的會議報告分析平台</p>
+        </div>
+        <div class="footer-links">
+            <a href="../../">首頁</a>
+            <a href="../../seminars/">研討會</a>
+            <a href="../../categories/">分類</a>
+            <a href="../../tags/">標籤</a>
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <script src="../../js/main.js" defer></script>
+
+    
+    <script>document.documentElement.classList.remove('no-js');</script>
+</body>
+</html>

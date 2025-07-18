@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-tw" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>五大技術趨勢 - NeoTrendHub 會議報告</title>
+    <meta name="description" content="探索 AI 時代的五大核心技術趨勢，深入了解行業發展方向">
+    <meta name="generator" content="Hugo 0.147.9 - NeoTrendHub">
+    <meta name="author" content="NeoTrendHub AI">
+
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Critical CSS inline for above-the-fold content -->
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --primary-dark: #0048b3;
+            --secondary: #00bfff;
+            --text: #2d3748;
+            --text-light: #475569;
+            --bg: #f0f4f8;
+            --card: #fff;
+            --border: #e2e8f0;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --radius-md: 12px;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #4b93ff;
+                --text: #e2e8f0;
+                --text-light: #cbd5e1;
+                --bg: #121825;
+                --card: #1e293b;
+                --border: #334155;
+                --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+            }
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Noto Sans TC', 'Inter', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .site-header {
+            background: var(--card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+    </style>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost/categories/trends.html">
+    <meta property="og:title" content="五大技術趨勢 - NeoTrendHub 會議報告">
+    <meta property="og:description" content="探索 AI 時代的五大核心技術趨勢，深入了解行業發展方向">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://localhost/categories/trends.html">
+    <meta property="twitter:title" content="五大技術趨勢 - NeoTrendHub 會議報告">
+    <meta property="twitter:description" content="探索 AI 時代的五大核心技術趨勢，深入了解行業發展方向">
+
+    <!-- CSS Styles - Load non-critical CSS asynchronously -->
+    <link rel="preload" href="../css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../css/styles.css"></noscript>
+
+    <!-- Google Fonts - Optimized loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap"></noscript>
+
+    <!-- SEO -->
+    <link rel="canonical" href="http://localhost/categories/trends.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#3a86ff">
+    <meta name="msapplication-TileColor" content="#3a86ff">
+</head>
+<body class="template-professional hugo-site">
+    <div class="container">
+        <header class="site-header">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <span class="brand-icon">🔬</span>
+                        <span class="brand-text">NeoTrendHub 會議報告</span>
+                    </a>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="nav-search">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="搜尋技術趨勢..." aria-label="搜尋">
+                        <button class="search-button" type="button" aria-label="搜尋">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <div class="nav-menu" id="nav-menu">
+                    <a href="../index.html" class="nav-link">首頁</a>
+                    <a href="../seminars/" class="nav-link">研討會</a>
+                    <a href="../categories/" class="nav-link active">分類</a>
+                    <a href="../tags/" class="nav-link">標籤</a>
+                    
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle" aria-label="切換深色模式" title="切換深色模式">
+                        <svg class="theme-icon theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="theme-icon theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </nav>
+            
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb" aria-label="麵包屑導航">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="../index.html">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="../categories/">分類</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        五大技術趨勢
+                    </li>
+                </ol>
+            </nav>
+        </header>
+
+        <main class="content" id="main-content" role="main">
+            
+<div class="trends-page">
+    <!-- 頁面標題區域 -->
+    <header class="page-header section-block gradient-bg">
+        <div class="header-content">
+            <h1 class="page-title">🚀 五大技術趨勢</h1>
+            <p class="page-subtitle">探索 AI 時代的核心技術發展方向，洞察未來科技脈動</p>
+            <div class="page-stats-hero">
+                <div class="stat-card">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">大趨勢</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">30</span>
+                    <span class="stat-label">相關報告</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">技術關鍵字</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 趨勢概述 -->
+    <section class="trends-overview section-block">
+        <div class="overview-content">
+            <h2>🎯 趨勢概述</h2>
+            <p class="overview-text">
+                基於對 30 場 AI 會議的深度分析，我們識別出五大核心技術趨勢，這些趨勢正在重塑整個科技產業的發展方向。
+                從大模型的突破性進展到邊緣計算的普及應用，每個趨勢都代表著技術創新的重要里程碑。
+            </p>
+            <div class="overview-highlights">
+                <div class="highlight-item">
+                    <span class="highlight-icon">🧠</span>
+                    <span class="highlight-text">智能化程度持續提升</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-icon">⚡</span>
+                    <span class="highlight-text">計算效率大幅優化</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-icon">🔗</span>
+                    <span class="highlight-text">跨領域融合加速</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-icon">🛡️</span>
+                    <span class="highlight-text">安全性要求提高</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 五大技術趨勢卡片 -->
+    <section class="trends-grid-section section-block">
+        <div class="section-header">
+            <h2 class="section-title">📊 五大核心趨勢</h2>
+            <p class="section-subtitle">深入了解每個技術趨勢的發展現狀和未來方向</p>
+        </div>
+
+        <div class="trends-grid" id="trends-grid">
+            <!-- 趨勢 1: 大模型與生成式 AI -->
+            <article class="trend-card interactive-card" data-trend="llm">
+                <div class="trend-card-header">
+                    <div class="trend-icon">🤖</div>
+                    <div class="trend-badge">熱門</div>
+                </div>
+                <h3 class="trend-title">大模型與生成式 AI</h3>
+                <p class="trend-description">
+                    大語言模型和生成式 AI 技術正在重新定義人工智能的邊界，從文本生成到多模態理解，
+                    這一趨勢正在推動 AI 應用的全面普及。
+                </p>
+                <div class="trend-stats">
+                    <div class="trend-stat">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">相關報告</span>
+                    </div>
+                    <div class="trend-stat">
+                        <span class="stat-number">85%</span>
+                        <span class="stat-label">覆蓋率</span>
+                    </div>
+                </div>
+                <div class="trend-keywords">
+                    <span class="keyword-tag">GPT</span>
+                    <span class="keyword-tag">Transformer</span>
+                    <span class="keyword-tag">多模態</span>
+                    <span class="keyword-tag">RLHF</span>
+                </div>
+                <div class="trend-card-footer">
+                    <a href="../sessions/enhanced.html?filter=llm" class="explore-trend-btn modern-btn">
+                        探索相關報告 →
+                    </a>
+                </div>
+            </article>
+
+            <!-- 趨勢 2: AI Agent 與智能體 -->
+            <article class="trend-card interactive-card" data-trend="agent">
+                <div class="trend-card-header">
+                    <div class="trend-icon">🎯</div>
+                    <div class="trend-badge">新興</div>
+                </div>
+                <h3 class="trend-title">AI Agent 與智能體</h3>
+                <p class="trend-description">
+                    AI Agent 技術正在從概念走向實用，通過自主決策和任務執行能力，
+                    為各行各業提供智能化的解決方案。
+                </p>
+                <div class="trend-stats">
+                    <div class="trend-stat">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">相關報告</span>
+                    </div>
+                    <div class="trend-stat">
+                        <span class="stat-number">65%</span>
+                        <span class="stat-label">覆蓋率</span>
+                    </div>
+                </div>
+                <div class="trend-keywords">
+                    <span class="keyword-tag">自主決策</span>
+                    <span class="keyword-tag">任務規劃</span>
+                    <span class="keyword-tag">工具使用</span>
+                    <span class="keyword-tag">多智能體</span>
+                </div>
+                <div class="trend-card-footer">
+                    <a href="../sessions/enhanced.html?filter=agent" class="explore-trend-btn modern-btn">
+                        探索相關報告 →
+                    </a>
+                </div>
+            </article>
+
+            <!-- 趨勢 3: 邊緣計算與端側部署 -->
+            <article class="trend-card interactive-card" data-trend="edge">
+                <div class="trend-card-header">
+                    <div class="trend-icon">📱</div>
+                    <div class="trend-badge">實用</div>
+                </div>
+                <h3 class="trend-title">邊緣計算與端側部署</h3>
+                <p class="trend-description">
+                    隨著模型壓縮和優化技術的進步，AI 正在從雲端走向邊緣，
+                    為用戶提供更快速、更私密的智能服務體驗。
+                </p>
+                <div class="trend-stats">
+                    <div class="trend-stat">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">相關報告</span>
+                    </div>
+                    <div class="trend-stat">
+                        <span class="stat-number">45%</span>
+                        <span class="stat-label">覆蓋率</span>
+                    </div>
+                </div>
+                <div class="trend-keywords">
+                    <span class="keyword-tag">模型壓縮</span>
+                    <span class="keyword-tag">量化</span>
+                    <span class="keyword-tag">移動端</span>
+                    <span class="keyword-tag">低延遲</span>
+                </div>
+                <div class="trend-card-footer">
+                    <a href="../sessions/enhanced.html?filter=edge" class="explore-trend-btn modern-btn">
+                        探索相關報告 →
+                    </a>
+                </div>
+            </article>
+
+            <!-- 趨勢 4: 數據智能與分析 -->
+            <article class="trend-card interactive-card" data-trend="data">
+                <div class="trend-card-header">
+                    <div class="trend-icon">📊</div>
+                    <div class="trend-badge">核心</div>
+                </div>
+                <h3 class="trend-title">數據智能與分析</h3>
+                <p class="trend-description">
+                    數據驅動的智能分析正在成為企業決策的核心，從實時分析到預測建模，
+                    數據智能正在重塑商業運營模式。
+                </p>
+                <div class="trend-stats">
+                    <div class="trend-stat">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">相關報告</span>
+                    </div>
+                    <div class="trend-stat">
+                        <span class="stat-number">55%</span>
+                        <span class="stat-label">覆蓋率</span>
+                    </div>
+                </div>
+                <div class="trend-keywords">
+                    <span class="keyword-tag">實時分析</span>
+                    <span class="keyword-tag">預測建模</span>
+                    <span class="keyword-tag">數據治理</span>
+                    <span class="keyword-tag">商業智能</span>
+                </div>
+                <div class="trend-card-footer">
+                    <a href="../sessions/enhanced.html?filter=data" class="explore-trend-btn modern-btn">
+                        探索相關報告 →
+                    </a>
+                </div>
+            </article>
+
+            <!-- 趨勢 5: 安全與可信 AI -->
+            <article class="trend-card interactive-card" data-trend="security">
+                <div class="trend-card-header">
+                    <div class="trend-icon">🛡️</div>
+                    <div class="trend-badge">關鍵</div>
+                </div>
+                <h3 class="trend-title">安全與可信 AI</h3>
+                <p class="trend-description">
+                    隨著 AI 應用的廣泛部署，安全性和可信度成為關鍵考量，
+                    從模型安全到隱私保護，構建可信 AI 生態系統至關重要。
+                </p>
+                <div class="trend-stats">
+                    <div class="trend-stat">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">相關報告</span>
+                    </div>
+                    <div class="trend-stat">
+                        <span class="stat-number">35%</span>
+                        <span class="stat-label">覆蓋率</span>
+                    </div>
+                </div>
+                <div class="trend-keywords">
+                    <span class="keyword-tag">模型安全</span>
+                    <span class="keyword-tag">隱私保護</span>
+                    <span class="keyword-tag">可解釋性</span>
+                    <span class="keyword-tag">風險控制</span>
+                </div>
+                <div class="trend-card-footer">
+                    <a href="../sessions/enhanced.html?filter=security" class="explore-trend-btn modern-btn">
+                        探索相關報告 →
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 趨勢分析圖表 -->
+    <section class="trends-analysis section-block">
+        <div class="section-header">
+            <h2 class="section-title">📈 趨勢分析</h2>
+            <p class="section-subtitle">基於會議報告數據的趨勢熱度和發展預測</p>
+        </div>
+
+        <div class="analysis-grid">
+            <div class="analysis-card">
+                <h3>📊 熱度排行</h3>
+                <div class="trend-ranking">
+                    <div class="ranking-item">
+                        <span class="rank">1</span>
+                        <span class="trend-name">大模型與生成式 AI</span>
+                        <div class="heat-bar">
+                            <div class="heat-fill" style="width: 85%"></div>
+                        </div>
+                        <span class="heat-value">85%</span>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank">2</span>
+                        <span class="trend-name">AI Agent 與智能體</span>
+                        <div class="heat-bar">
+                            <div class="heat-fill" style="width: 65%"></div>
+                        </div>
+                        <span class="heat-value">65%</span>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank">3</span>
+                        <span class="trend-name">數據智能與分析</span>
+                        <div class="heat-bar">
+                            <div class="heat-fill" style="width: 55%"></div>
+                        </div>
+                        <span class="heat-value">55%</span>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank">4</span>
+                        <span class="trend-name">邊緣計算與端側部署</span>
+                        <div class="heat-bar">
+                            <div class="heat-fill" style="width: 45%"></div>
+                        </div>
+                        <span class="heat-value">45%</span>
+                    </div>
+                    <div class="ranking-item">
+                        <span class="rank">5</span>
+                        <span class="trend-name">安全與可信 AI</span>
+                        <div class="heat-bar">
+                            <div class="heat-fill" style="width: 35%"></div>
+                        </div>
+                        <span class="heat-value">35%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-card">
+                <h3>🔮 發展預測</h3>
+                <div class="prediction-content">
+                    <div class="prediction-item">
+                        <div class="prediction-icon">📈</div>
+                        <div class="prediction-text">
+                            <strong>短期 (6個月)</strong><br>
+                            大模型應用將進一步普及，AI Agent 開始商業化部署
+                        </div>
+                    </div>
+                    <div class="prediction-item">
+                        <div class="prediction-icon">🚀</div>
+                        <div class="prediction-text">
+                            <strong>中期 (1-2年)</strong><br>
+                            邊緣計算成為主流，數據智能平台大規模應用
+                        </div>
+                    </div>
+                    <div class="prediction-item">
+                        <div class="prediction-icon">🌟</div>
+                        <div class="prediction-text">
+                            <strong>長期 (3-5年)</strong><br>
+                            可信 AI 標準建立，跨領域融合創新加速
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-section footer-about">
+                    <h3>NeoTrendHub 會議報告</h3>
+                    <p>AI 驅動的會議報告分析平台</p>
+                    <div class="footer-stats">
+                        <div class="stat">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">大趨勢</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">30</span>
+                            <span class="stat-label">報告</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">關鍵字</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section footer-navigation">
+                    <h4>快速導航</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">首頁</a></li>
+                        <li><a href="../seminars/">研討會</a></li>
+                        <li><a href="../categories/">分類</a></li>
+                        <li><a href="../tags/">標籤</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section footer-trends">
+                    <h4>技術趨勢</h4>
+                    <ul class="footer-links">
+                        <li><a href="#llm">大模型與生成式 AI</a></li>
+                        <li><a href="#agent">AI Agent 與智能體</a></li>
+                        <li><a href="#edge">邊緣計算與端側部署</a></li>
+                        <li><a href="#data">數據智能與分析</a></li>
+                        <li><a href="#security">安全與可信 AI</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section footer-insights">
+                    <h4>深度洞察</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="../sessions/enhanced.html" title="最新技術報告">
+                                最新技術報告
+                            </a>
+                            <small>持續更新</small>
+                        </li>
+                        <li>
+                            <a href="../sessions/enhanced.html" title="趨勢分析">
+                                趨勢分析報告
+                            </a>
+                            <small>每月發布</small>
+                        </li>
+                        <li>
+                            <a href="../sessions/enhanced.html" title="行業洞察">
+                                行業洞察
+                            </a>
+                            <small>專家觀點</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 NeoTrendHub 會議報告. 由 NeoTrendHub AI 驅動。</p>
+                    <p class="footer-tech">
+                        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 建構 |
+                        版本 1.0.0
+                    </p>
+                </div>
+
+                <div class="footer-actions">
+                    <button class="back-to-top" id="back-to-top" aria-label="回到頂部">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="18,15 12,9 6,15"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript - Optimized loading -->
+    <script>
+        // Remove no-js class immediately
+        document.documentElement.classList.remove('no-js');
+
+        // Critical JavaScript for immediate functionality
+        (function() {
+            // Theme detection and application
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-theme');
+            }
+        })();
+    </script>
+
+    <!-- Load main JavaScript asynchronously -->
+    <script src="../js/main.js" defer></script>
+
+    <!-- Service Worker for caching (if available) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').catch(function() {
+                    // Service worker registration failed, continue without it
+                });
+            });
+        }
+    </script>
+</body>
+</html>

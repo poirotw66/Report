@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Links Verification</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f0f4f8;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #3a86ff, #00bfff);
+            color: white;
+            border-radius: 12px;
+        }
+        .verification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .session-check {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #3a86ff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .session-check.success {
+            border-left-color: #22c55e;
+        }
+        .session-check.error {
+            border-left-color: #ef4444;
+        }
+        .session-id {
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .session-title {
+            font-weight: 600;
+            margin: 0.5rem 0;
+            color: #2d3748;
+        }
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .status.success {
+            background: #dcfce7;
+            color: #166534;
+        }
+        .status.error {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+        .summary {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .summary.success {
+            border-left: 6px solid #22c55e;
+        }
+        .test-link {
+            color: #3a86ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .test-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔗 Session Links Verification</h1>
+        <p>Verifying all session links are functional after the fix</p>
+    </div>
+
+    <div id="verification-results" class="verification-grid">
+        <!-- Results will be populated by JavaScript -->
+    </div>
+
+    <div id="summary" class="summary">
+        <h2>Running verification...</h2>
+        <p>Please wait while we check all session links.</p>
+    </div>
+
+    <script>
+        // Session data from enhanced.html (updated with correct titles matching actual files)
+        const sessionsToVerify = [
+            { id: "session-06738cfc", title: "深思考端侧多模态大模型TinyDongni&Deepseek的创新实践" },
+            { id: "session-766c6ee4", title: "AI Agent 如何重塑有声内容的生产与分发" },
+            { id: "session-8ab99e20", title: "AI Agent+IoT技术方案新场景创新应用" },
+            { id: "session-f48d2c98", title: "AI赋能eBay支付风控：从用户行为到交易安全的全面智能化" },
+            { id: "session-111579d4", title: "CangjieMagic：基于仓颉语言的Agent开发框架实践" },
+            { id: "session-12d77a9f", title: "Coding Agent 驱动研发提效：从实践到流程改进" },
+            { id: "session-6db34cc7", title: "DLRover在万卡规模大模型训练中的稳定性实践" },
+            { id: "session-688e55cf", title: "Data+AI 下一代数智平台建设" },
+            { id: "session-25c654c8", title: "DeepResearch如何在企业内落地" },
+            { id: "session-f58850fb", title: "GenAI 应用时代，开发思想如何变革？" },
+            { id: "session-e53a6872", title: "Infinity：视觉自回归生成新路线" },
+            { id: "session-0a732304", title: "Training, Inference, Agents: Beyond Apps in the AI-Native World" },
+            { id: "session-0c9753a1", title: "大模型调优数据的高效构建与进化方法" },
+            { id: "session-0e587e62", title: "构建面向大模型的安全治理体系和应用实践" },
+            { id: "session-162e4b8a", title: "开场致辞" },
+            { id: "session-188a161a", title: "一年上线超 10 款产品，AI 时代如何做独立开发" },
+            { id: "session-49b991f1", title: "加速 AI 推理与检索生成：在 PB 级数据湖上实现 Parquet 查询 1000 倍性能提升" },
+            { id: "session-5ca8220f", title: "从Copilot到Agent：AI编程的范式革新" },
+            { id: "session-7b9e519b", title: "QAnything：大模型驱动下的知识库问答体系革新与实践" },
+            { id: "session-8fb4068a", title: "大模型助力软件研发人机协同进化实践" },
+            { id: "session-972e13af", title: "深入对比智能体协议：MCP、A2A、ANP" },
+            { id: "session-af38178a", title: "大模型时代的数据隐私保护技术" },
+            { id: "session-b2e89c81", title: "大模型推理优化：从理论到实践" },
+            { id: "session-c9ca70ba", title: "多模态大模型在智慧城市中的应用" },
+            { id: "session-d9f22387", title: "AI驱动的自动化测试框架设计" },
+            { id: "session-dfa27999", title: "边缘计算中的AI模型部署策略" },
+            { id: "session-e16475e5", title: "联邦学习在金融风控中的实践" },
+            { id: "session-e79727c0", title: "大规模知识图谱构建与应用" },
+            { id: "session-e9c5f110", title: "AI辅助的代码审查系统设计" },
+            { id: "session-f9c0d626", title: "强化学习在推荐系统中的创新应用" }
+        ];
+
+        async function verifySessionLink(session) {
+            const url = `html/sessions/${session.id}/index.html`;
+
+            try {
+                const response = await fetch(url, { method: 'HEAD' });
+                return {
+                    ...session,
+                    status: response.ok ? 'success' : 'error',
+                    statusCode: response.status,
+                    url: url
+                };
+            } catch (error) {
+                return {
+                    ...session,
+                    status: 'error',
+                    statusCode: 'Network Error',
+                    url: url,
+                    error: error.message
+                };
+            }
+        }
+
+        // 驗證標題是否與實際檔案匹配
+        async function verifySessionContent(session) {
+            const url = `html/sessions/${session.id}/index.html`;
+
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    const html = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const actualTitle = doc.querySelector('.report-title')?.textContent?.trim();
+
+                    return {
+                        ...session,
+                        actualTitle: actualTitle,
+                        titleMatch: actualTitle === session.title,
+                        status: 'success'
+                    };
+                } else {
+                    return {
+                        ...session,
+                        status: 'error',
+                        statusCode: response.status
+                    };
+                }
+            } catch (error) {
+                return {
+                    ...session,
+                    status: 'error',
+                    error: error.message
+                };
+            }
+        }
+
+        function createSessionCheckElement(result) {
+            const div = document.createElement('div');
+            div.className = `session-check ${result.status}`;
+            
+            div.innerHTML = `
+                <div class="session-id">${result.id}</div>
+                <div class="session-title">${result.title}</div>
+                <div>
+                    <span class="status ${result.status}">
+                        ${result.status === 'success' ? '✅ Available' : '❌ Not Found'}
+                    </span>
+                    <a href="${result.url}" class="test-link" target="_blank">Test Link</a>
+                </div>
+                ${result.statusCode ? `<div style="font-size: 0.8rem; color: #666; margin-top: 0.5rem;">Status: ${result.statusCode}</div>` : ''}
+            `;
+            
+            return div;
+        }
+
+        function updateSummary(results) {
+            const successCount = results.filter(r => r.status === 'success').length;
+            const totalCount = results.length;
+            const successRate = Math.round((successCount / totalCount) * 100);
+            
+            const summaryDiv = document.getElementById('summary');
+            summaryDiv.className = `summary ${successCount === totalCount ? 'success' : 'error'}`;
+            
+            summaryDiv.innerHTML = `
+                <h2>${successCount === totalCount ? '🎉 All Links Working!' : '⚠️ Some Links Need Attention'}</h2>
+                <p><strong>${successCount}/${totalCount}</strong> sessions are accessible (${successRate}% success rate)</p>
+                ${successCount === totalCount ? 
+                    '<p style="color: #22c55e;">✅ The session file fix was successful! All session links are now functional.</p>' :
+                    '<p style="color: #ef4444;">❌ Some session files are still missing or inaccessible.</p>'
+                }
+            `;
+        }
+
+        async function runVerification() {
+            const resultsContainer = document.getElementById('verification-results');
+            const results = [];
+            
+            // Clear previous results
+            resultsContainer.innerHTML = '';
+            
+            // Verify each session
+            for (const session of sessionsToVerify) {
+                const result = await verifySessionLink(session);
+                results.push(result);
+                
+                // Add result to display
+                const element = createSessionCheckElement(result);
+                resultsContainer.appendChild(element);
+                
+                // Update summary after each check
+                updateSummary(results);
+                
+                // Small delay to avoid overwhelming the server
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            
+            console.log('Verification complete:', results);
+        }
+
+        // Start verification when page loads
+        document.addEventListener('DOMContentLoaded', runVerification);
+    </script>
+</body>
+</html>

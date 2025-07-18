@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="homepage">
+    <h1>{{ .Title | default .Site.Title }}</h1>
+    <div class="content">
+        {{ .Content }}
+    </div>
+
+    <!-- 快速導航 -->
+    <div class="navigation">
+        <h2>快速導航</h2>
+        <ul>
+            <li><a href="/posts/">會議報告</a></li>
+            <li><a href="/tags/">標籤</a></li>
+            <li><a href="/categories/">分類</a></li>
+            <li><a href="/seminars/">研討會</a></li>
+        </ul>
+    </div>
+</div>
+{{ end }}

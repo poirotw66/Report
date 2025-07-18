@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>趨勢分類總覽 on NeoTrendHub 會議報告</title>
+    <link>http://localhost/trends/</link>
+    <description>Recent content in 趨勢分類總覽 on NeoTrendHub 會議報告</description>
+    <generator>Hugo</generator>
+    <language>zh-tw</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost/trends/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

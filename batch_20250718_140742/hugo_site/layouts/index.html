@@ -1,0 +1,326 @@
+{{ define "main" }}
+<div class="homepage trends-overview">
+    <!-- 技術趨勢總覽標題區 -->
+    <section class="hero section-block trends-hero">
+        <h1 class="hero-title">{{ .Title | default .Site.Title }}</h1>
+        <p class="hero-subtitle">{{ .Description | default .Site.Params.description }}</p>
+
+        {{ if .Params.total_sessions }}
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">{{ .Params.total_sessions }}</span>
+                <span class="stat-label">分析會議</span>
+            </div>
+            {{ if .Params.seminars_analyzed }}
+            <div class="stat-item">
+                <span class="stat-number">{{ len .Params.seminars_analyzed }}</span>
+                <span class="stat-label">研討會</span>
+            </div>
+            {{ end }}
+            <div class="stat-item">
+                <span class="stat-number">{{ len .Site.RegularPages }}</span>
+                <span class="stat-label">總報告</span>
+            </div>
+        </div>
+        {{ end }}
+    </section>
+
+    <!-- 趨勢分析主要內容 -->
+    <section class="trends-content section-block">
+        <div class="content-wrapper">
+            {{ .Content }}
+        </div>
+    </section>
+
+    <!-- 視覺化數據區域 -->
+    {{ if .Params.visualization_data }}
+    <section class="visualization-section section-block">
+        <h2 class="section-title">技術趨勢視覺化</h2>
+
+        {{ if .Params.visualization_data.word_cloud }}
+        <div class="word-cloud-container">
+            <h3>熱門技術關鍵字</h3>
+            <div class="word-cloud">
+                {{ range .Params.visualization_data.word_cloud }}
+                <span class="word-item" data-frequency="{{ .frequency }}" data-importance="{{ .importance }}">
+                    {{ .word }}
+                </span>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+
+        {{ if .Params.visualization_data.trend_hierarchy }}
+        <div class="trend-hierarchy-container">
+            <h3>技術趨勢分類</h3>
+            <div class="trend-hierarchy">
+                {{ range .Params.visualization_data.trend_hierarchy }}
+                <div class="main-trend">
+                    <h4>{{ .main_trend }}</h4>
+                    {{ if .sub_trends }}
+                    <ul class="sub-trends">
+                        {{ range .sub_trends }}
+                        <li>
+                            <strong>{{ .name }}</strong>
+                            {{ if .applications }}
+                            <ul class="applications">
+                                {{ range .applications }}
+                                <li>{{ . }}</li>
+                                {{ end }}
+                            </ul>
+                            {{ end }}
+                        </li>
+                        {{ end }}
+                    </ul>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </section>
+    {{ end }}
+
+    <!-- 篩選和分類區域 -->
+    <section class="filter-section section-block">
+        <h2 class="section-title">探索報告</h2>
+        <div class="filter-controls">
+            <div class="filter-group">
+                <label for="seminar-filter">研討會：</label>
+                <select id="seminar-filter" class="filter-select">
+                    <option value="">所有研討會</option>
+                    {{ range .Site.Taxonomies.seminars }}
+                    <option value="{{ .Page.Title }}">{{ .Page.Title }} ({{ .Count }})</option>
+                    {{ end }}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="category-filter">分類：</label>
+                <select id="category-filter" class="filter-select">
+                    <option value="">所有分類</option>
+                    {{ range .Site.Taxonomies.categories }}
+                    <option value="{{ .Page.Title }}">{{ .Page.Title }} ({{ .Count }})</option>
+                    {{ end }}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="sort-filter">排序：</label>
+                <select id="sort-filter" class="filter-select">
+                    <option value="date-desc">最新優先</option>
+                    <option value="date-asc">最舊優先</option>
+                    <option value="title-asc">標題 A-Z</option>
+                    <option value="title-desc">標題 Z-A</option>
+                </select>
+            </div>
+
+            <button class="filter-reset" id="reset-filters">重置篩選</button>
+        </div>
+    </section>
+
+    <!-- 快速導航區域 -->
+    <section class="navigation-section section-block">
+        <h2 class="section-title">快速導航</h2>
+        <div class="navigation-grid">
+            <div class="nav-card interactive-card" data-category="trends">
+                <div class="nav-card-icon">📊</div>
+                <h3><a href="../html/categories/trends.html">趨勢分析</a></h3>
+                <p>深入了解 AI 技術發展趨勢</p>
+                <div class="nav-card-stats">
+                    <span>{{ len .Site.Taxonomies.categories }} 個分類</span>
+                </div>
+            </div>
+            <div class="nav-card interactive-card" data-category="seminars">
+                <div class="nav-card-icon">🎯</div>
+                <h3><a href="../html/sessions/enhanced.html">研討會</a></h3>
+                <p>探索各大 AI 會議精華內容</p>
+                <div class="nav-card-stats">
+                    <span>{{ len .Site.Taxonomies.seminars }} 個研討會</span>
+                </div>
+            </div>
+            <div class="nav-card interactive-card" data-category="reports">
+                <div class="nav-card-icon">📝</div>
+                <h3><a href="/posts/">所有報告</a></h3>
+                <p>瀏覽完整的會議報告庫</p>
+                <div class="nav-card-stats">
+                    <span>{{ len .Site.RegularPages }} 篇報告</span>
+                </div>
+            </div>
+            <div class="nav-card interactive-card" data-category="tags">
+                <div class="nav-card-icon">🏷️</div>
+                <h3><a href="/tags/">標籤雲</a></h3>
+                <p>按技術標籤快速找到相關內容</p>
+                <div class="nav-card-stats">
+                    <span>{{ len .Site.Taxonomies.tags }} 個標籤</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新報告預覽 -->
+    <section class="recent-reports section-block">
+        <div class="section-header">
+            <h2 class="section-title">最新報告</h2>
+            <a href="/posts/" class="view-all-link">查看全部 →</a>
+        </div>
+        <div class="reports-grid" id="reports-grid">
+            {{ range first 6 .Site.RegularPages }}
+            <article class="report-card" data-seminar="{{ .Params.seminar }}" data-category="{{ .Params.category }}" data-date="{{ .Date.Format "2006-01-02" }}">
+                <div class="report-card-header">
+                    <div class="report-meta">
+                        <span class="report-seminar">{{ .Params.seminar }}</span>
+                        <span class="report-date">{{ .Date.Format "01/02" }}</span>
+                    </div>
+                    {{ if .Params.category }}
+                    <span class="report-category">{{ .Params.category }}</span>
+                    {{ end }}
+                </div>
+                <h3 class="report-title">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </h3>
+                <p class="report-excerpt">
+                    {{ .Summary | truncate 120 }}
+                </p>
+                {{ if .Params.tags }}
+                <div class="report-tags">
+                    {{ range first 3 .Params.tags }}
+                    <span class="tag-mini">{{ . }}</span>
+                    {{ end }}
+                    {{ if gt (len .Params.tags) 3 }}
+                    <span class="tag-more">+{{ sub (len .Params.tags) 3 }}</span>
+                    {{ end }}
+                </div>
+                {{ end }}
+                <div class="report-card-footer">
+                    <a href="{{ .Permalink }}" class="read-more">閱讀全文</a>
+                </div>
+            </article>
+            {{ end }}
+        </div>
+        <div class="load-more-container">
+            <button class="load-more-btn" id="load-more" style="display: none;">載入更多報告</button>
+        </div>
+    </section>
+
+    <!-- 熱門標籤雲 -->
+    <section class="tags-cloud section-block">
+        <h2 class="section-title">熱門技術標籤</h2>
+        <div class="tag-cloud-container">
+            {{ range first 20 .Site.Taxonomies.tags.ByCount }}
+            <a href="{{ .Page.Permalink }}" class="tag-cloud-item" data-count="{{ .Count }}" style="--tag-weight: {{ div .Count 5 }}">
+                {{ .Page.Title }}
+                <span class="tag-count">({{ .Count }})</span>
+            </a>
+            {{ end }}
+        </div>
+        <div class="tag-cloud-controls">
+            <button class="tag-filter-btn active" data-filter="all">全部</button>
+            <button class="tag-filter-btn" data-filter="ai">AI/ML</button>
+            <button class="tag-filter-btn" data-filter="tech">技術</button>
+            <button class="tag-filter-btn" data-filter="business">商業</button>
+        </div>
+    </section>
+
+    <!-- 研討會統計區域 -->
+    <section class="seminars-overview section-block">
+        <div class="section-header">
+            <h2 class="section-title">研討會分析統計</h2>
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="grid">網格</button>
+                <button class="view-btn" data-view="list">列表</button>
+            </div>
+        </div>
+
+        {{ if .Params.seminars_analyzed }}
+        <div class="seminars-stats">
+            {{ range .Params.seminars_analyzed }}
+            <div class="seminar-stat">
+                <span class="seminar-name">{{ . }}</span>
+            </div>
+            {{ end }}
+        </div>
+        {{ end }}
+
+        <div class="seminars-container">
+            <div class="seminars-grid" id="seminars-view">
+                {{ range .Site.Taxonomies.seminars.ByCount }}
+                <div class="seminar-card interactive-card" data-seminar="{{ .Page.Title }}">
+                    <div class="seminar-card-header">
+                        <div class="seminar-icon">🎪</div>
+                        <div class="seminar-badge">{{ .Count }} 場</div>
+                    </div>
+                    <h3 class="seminar-name">
+                        <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+                    </h3>
+                    <div class="seminar-details">
+                        <div class="seminar-stats-mini">
+                            <span class="stat-item">
+                                <span class="stat-icon">📊</span>
+                                <span class="stat-text">{{ .Count }} 場會議</span>
+                            </span>
+                        </div>
+                        <div class="seminar-preview">
+                            {{ range first 2 .Pages }}
+                            <div class="session-preview">
+                                <a href="{{ .Permalink }}" title="{{ .Title }}">
+                                    {{ .Title | truncate 40 }}
+                                </a>
+                            </div>
+                            {{ end }}
+                            {{ if gt .Count 2 }}
+                            <div class="session-more">
+                                還有 {{ sub .Count 2 }} 場會議...
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                    <div class="seminar-card-footer">
+                        <a href="{{ .Page.Permalink }}" class="explore-btn">探索研討會</a>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+
+    <!-- 統計儀表板 -->
+    <section class="stats-dashboard section-block">
+        <h2 class="section-title">平台統計</h2>
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <div class="dashboard-icon">📈</div>
+                <div class="dashboard-content">
+                    <h3>總報告數</h3>
+                    <div class="dashboard-number">{{ len .Site.RegularPages }}</div>
+                    <div class="dashboard-trend">持續增長中</div>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <div class="dashboard-icon">🏢</div>
+                <div class="dashboard-content">
+                    <h3>研討會數量</h3>
+                    <div class="dashboard-number">{{ len .Site.Taxonomies.seminars }}</div>
+                    <div class="dashboard-trend">涵蓋主流會議</div>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <div class="dashboard-icon">🔖</div>
+                <div class="dashboard-content">
+                    <h3>技術分類</h3>
+                    <div class="dashboard-number">{{ len .Site.Taxonomies.categories }}</div>
+                    <div class="dashboard-trend">全面覆蓋</div>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <div class="dashboard-icon">🏷️</div>
+                <div class="dashboard-content">
+                    <h3>標籤總數</h3>
+                    <div class="dashboard-number">{{ len .Site.Taxonomies.tags }}</div>
+                    <div class="dashboard-trend">精準標記</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{{ end }}

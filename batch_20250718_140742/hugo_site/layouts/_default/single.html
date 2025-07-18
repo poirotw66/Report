@@ -1,0 +1,56 @@
+{{ define "main" }}
+<article class="single-report">
+    <header class="report-header section-block meeting-info">
+        <h1 class="report-title">{{ .Title }}</h1>
+        <div class="report-meta">
+            <div class="meta-item">
+                <strong>研討會：</strong> {{ .Params.seminar }}
+            </div>
+            <div class="meta-item">
+                <strong>類型：</strong> {{ .Params.category | default "主題演講" }}
+            </div>
+            <div class="meta-item">
+                <strong>日期：</strong> {{ .Date.Format "2006年01月02日" }}
+            </div>
+            {{ if .Params.url }}
+            <div class="meta-item">
+                <strong>來源：</strong> <a href="{{ .Params.url }}" target="_blank">{{ .Params.url }}</a>
+            </div>
+            {{ end }}
+        </div>
+        {{ if .Params.tags }}
+        <div class="report-tags">
+            {{ range .Params.tags }}
+            <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </header>
+
+    <div class="report-content">
+        {{ .Content }}
+    </div>
+
+    <footer class="report-footer section-block">
+        <div class="report-navigation">
+            {{ with .PrevInSection }}
+            <a href="{{ .Permalink }}" class="nav-link prev">
+                <span class="nav-label">上一篇</span>
+                <span class="nav-title">{{ .Title }}</span>
+            </a>
+            {{ end }}
+
+            {{ with .NextInSection }}
+            <a href="{{ .Permalink }}" class="nav-link next">
+                <span class="nav-label">下一篇</span>
+                <span class="nav-title">{{ .Title }}</span>
+            </a>
+            {{ end }}
+        </div>
+
+        <div class="report-info">
+            <p><em>本報告由 NeoTrendHub 自動生成 | 生成時間：{{ .Date.Format "2006-01-02 15:04:05" }}</em></p>
+        </div>
+    </footer>
+</article>
+{{ end }}

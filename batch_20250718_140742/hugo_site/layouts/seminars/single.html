@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="seminar-single">
+    <header class="page-header section-block">
+        <h1 class="page-title">{{ .Title }}</h1>
+        <div class="seminar-stats">
+            <span class="stat">共 {{ len .Pages }} 場會議</span>
+        </div>
+    </header>
+
+    <div class="reports-grid">
+        {{ range .Pages }}
+        <article class="report-card section-block">
+            <h3 class="report-title">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h3>
+            <div class="report-meta">
+                <span class="category">{{ .Params.category | default "主題演講" }}</span>
+                <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+            </div>
+            <p class="report-excerpt">{{ .Summary | truncate 150 }}</p>
+            {{ if .Params.tags }}
+            <div class="report-tags">
+                {{ range .Params.tags }}
+                <span class="tag">{{ . }}</span>
+                {{ end }}
+            </div>
+            {{ end }}
+        </article>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

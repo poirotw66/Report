@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="zh-tw" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>會議總覽 - NeoTrendHub 會議報告</title>
+    <meta name="description" content="探索 AI 技術前沿，深入了解行業趨勢">
+    <meta name="generator" content="Hugo 0.147.9 - NeoTrendHub">
+    <meta name="author" content="NeoTrendHub AI">
+
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Critical CSS inline for above-the-fold content -->
+    <style>
+        :root {
+            /* 現代化色彩系統 */
+            --primary: #6366f1;
+            --primary-light: #8b5cf6;
+            --primary-dark: #4f46e5;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+
+            /* 文字色彩 */
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --text-lighter: #9ca3af;
+            --text-inverse: #ffffff;
+
+            /* 背景色彩 */
+            --bg: #f8fafc;
+            --bg-secondary: #f1f5f9;
+            --card: #ffffff;
+            --card-hover: #f8fafc;
+
+            /* 邊框和分隔線 */
+            --border: #e5e7eb;
+            --border-light: #f3f4f6;
+            --border-focus: var(--primary);
+
+            /* 陰影系統 */
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+            /* 漸變背景 */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--warning) 100%);
+
+            /* 動畫和過渡 */
+            --transition-fast: all 0.15s ease-out;
+            --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+            /* 圓角系統 */
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 24px;
+            --radius-full: 9999px;
+
+            /* 間距系統 */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text: #f9fafb;
+                --text-light: #d1d5db;
+                --text-lighter: #9ca3af;
+                --text-inverse: #111827;
+
+                --bg: #0f172a;
+                --bg-secondary: #1e293b;
+                --card: #1e293b;
+                --card-hover: #334155;
+
+                --border: #374151;
+                --border-light: #4b5563;
+
+                --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+                --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+                --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+                --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+                --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+                --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-feature-settings: 'kern' 1, 'liga' 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .site-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition-base);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .site-header {
+                background: rgba(30, 41, 59, 0.95);
+            }
+        }
+    </style>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost/sessions/enhanced.html">
+    <meta property="og:title" content="會議總覽 - NeoTrendHub 會議報告">
+    <meta property="og:description" content="探索 AI 技術前沿，深入了解行業趨勢">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://localhost/sessions/enhanced.html">
+    <meta property="twitter:title" content="會議總覽 - NeoTrendHub 會議報告">
+    <meta property="twitter:description" content="探索 AI 技術前沿，深入了解行業趨勢">
+
+    <!-- CSS Styles - Load non-critical CSS asynchronously -->
+    <link rel="preload" href="../css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../css/styles.css"></noscript>
+
+    <!-- Google Fonts - Optimized loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap"></noscript>
+
+    <!-- SEO -->
+    <link rel="canonical" href="http://localhost/sessions/enhanced.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#3a86ff">
+    <meta name="msapplication-TileColor" content="#3a86ff">
+</head>
+<body class="template-professional hugo-site">
+    <div class="container">
+        <header class="site-header">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <a href="../index.html" class="brand-link">
+                        <span class="brand-icon">🔬</span>
+                        <span class="brand-text">NeoTrendHub 會議報告</span>
+                    </a>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="nav-search">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="搜尋會議報告..." aria-label="搜尋">
+                        <button class="search-button" type="button" aria-label="搜尋">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <div class="nav-menu" id="nav-menu">
+                    <a href="../index.html" class="nav-link">首頁</a>
+                    <a href="../seminars/" class="nav-link">研討會</a>
+                    <a href="../categories/" class="nav-link">分類</a>
+                    <a href="../tags/" class="nav-link">標籤</a>
+                    
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle" aria-label="切換深色模式" title="切換深色模式">
+                        <svg class="theme-icon theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="theme-icon theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </nav>
+            
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb" aria-label="麵包屑導航">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="../index.html">首頁</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        會議總覽
+                    </li>
+                </ol>
+            </nav>
+        </header>
+
+        <main class="content" id="main-content" role="main">
+            
+<div class="sessions-page">
+    <!-- 頁面標題區域 -->
+    <header class="page-hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="hero-pattern"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">🚀</span>
+                <span class="badge-text">AI 技術前沿</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-main">會議總覽</span>
+                <span class="title-accent">探索未來</span>
+            </h1>
+            <p class="hero-subtitle">
+                深入了解 AI 行業趨勢，掌握最新技術動態，
+                <br class="hidden sm:block">
+                與頂尖專家一起探索人工智能的無限可能
+            </p>
+
+            <!-- 統計卡片 -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <span class="stat-number" data-count="29">0</span>
+                        <span class="stat-label">場精彩會議</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-content">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">大技術領域</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-content">
+                        <span class="stat-number" data-count="100">0</span>
+                        <span class="stat-label">% 專業內容</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 快速導航 -->
+            <div class="quick-nav">
+                <a href="#filter-section" class="quick-nav-btn primary">
+                    <span class="btn-icon">🔍</span>
+                    <span class="btn-text">開始探索</span>
+                </a>
+                <a href="#sessions-grid" class="quick-nav-btn secondary">
+                    <span class="btn-icon">📋</span>
+                    <span class="btn-text">查看所有會議</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- 滾動指示器 -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+            </div>
+            <span class="scroll-text">向下滾動探索更多</span>
+        </div>
+    </header>
+
+    <!-- 篩選控制區域 -->
+    <section class="filter-section" id="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-header">
+                    <div class="section-badge">
+                        <span class="badge-icon">🎯</span>
+                        <span class="badge-text">智能篩選</span>
+                    </div>
+                    <h2 class="section-title">精準找到您需要的會議</h2>
+                    <p class="section-subtitle">使用我們的智能篩選系統，快速定位最符合您需求的技術會議</p>
+                </div>
+
+                <div class="filter-panel">
+                    <!-- 搜尋欄 -->
+                    <div class="search-section">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </div>
+                            <input
+                                type="text"
+                                id="search-sessions"
+                                class="search-input"
+                                placeholder="搜尋會議標題、講者或技術關鍵字..."
+                                autocomplete="off"
+                            >
+                            <div class="search-clear" id="search-clear">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="search-suggestions" id="search-suggestions"></div>
+                    </div>
+
+                    <!-- 篩選控制項 -->
+                    <div class="filter-controls">
+                        <div class="filter-row">
+                            <div class="filter-group">
+                                <label class="filter-label">
+                                    <span class="label-icon">📂</span>
+                                    <span class="label-text">會議分類</span>
+                                </label>
+                                <div class="select-wrapper">
+                                    <select id="category-filter" class="filter-select">
+                                        <option value="">所有分類</option>
+                                        <option value="主題演講">🎤 主題演講</option>
+                                        <option value="技術分享">💻 技術分享</option>
+                                        <option value="案例研究">📊 案例研究</option>
+                                        <option value="工具實踐">🔧 工具實踐</option>
+                                        <option value="架構設計">🏗️ 架構設計</option>
+                                    </select>
+                                    <div class="select-arrow">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="6,9 12,15 18,9"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <label class="filter-label">
+                                    <span class="label-icon">🔄</span>
+                                    <span class="label-text">排序方式</span>
+                                </label>
+                                <div class="select-wrapper">
+                                    <select id="sort-sessions" class="filter-select">
+                                        <option value="title">📝 標題 A-Z</option>
+                                        <option value="date">📅 日期排序</option>
+                                        <option value="relevance">⭐ 相關性</option>
+                                    </select>
+                                    <div class="select-arrow">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="6,9 12,15 18,9"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <label class="filter-label">
+                                    <span class="label-icon">📄</span>
+                                    <span class="label-text">每頁顯示</span>
+                                </label>
+                                <div class="select-wrapper">
+                                    <select id="per-page" class="filter-select">
+                                        <option value="6">6 場會議</option>
+                                        <option value="12">12 場會議</option>
+                                        <option value="24">24 場會議</option>
+                                        <option value="29">所有會議</option>
+                                    </select>
+                                    <div class="select-arrow">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="6,9 12,15 18,9"></polyline>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 快速篩選標籤 -->
+                        <div class="quick-filters">
+                            <span class="quick-filters-label">快速篩選：</span>
+                            <div class="quick-filter-tags">
+                                <button class="quick-filter-tag" data-filter="AI">AI</button>
+                                <button class="quick-filter-tag" data-filter="大模型">大模型</button>
+                                <button class="quick-filter-tag" data-filter="Agent">Agent</button>
+                                <button class="quick-filter-tag" data-filter="深度學習">深度學習</button>
+                                <button class="quick-filter-tag" data-filter="推理優化">推理優化</button>
+                            </div>
+                        </div>
+
+                        <!-- 重置按鈕 -->
+                        <div class="filter-actions">
+                            <button class="reset-btn" id="reset-session-filters">
+                                <span class="btn-icon">🔄</span>
+                                <span class="btn-text">重置篩選</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 會議網格區域 -->
+    <section class="sessions-section" id="sessions-grid">
+        <div class="container">
+            <div class="sessions-container">
+                <!-- 區域標題 -->
+                <div class="section-header">
+                    <div class="header-content">
+                        <div class="section-badge">
+                            <span class="badge-icon">📚</span>
+                            <span class="badge-text">會議內容</span>
+                        </div>
+                        <h2 class="section-title">精選技術會議</h2>
+                        <p class="section-subtitle">深度技術分享，前沿趨勢解析</p>
+                    </div>
+
+                    <!-- 視圖切換和結果統計 -->
+                    <div class="header-controls">
+                        <div class="results-info">
+                            <span class="results-count" id="results-count">共 29 場會議</span>
+                            <span class="results-filter" id="results-filter"></span>
+                        </div>
+                        <div class="view-controls">
+                            <div class="view-toggle">
+                                <button class="view-btn active" data-view="grid" title="網格視圖">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="7" height="7"></rect>
+                                        <rect x="14" y="3" width="7" height="7"></rect>
+                                        <rect x="14" y="14" width="7" height="7"></rect>
+                                        <rect x="3" y="14" width="7" height="7"></rect>
+                                    </svg>
+                                    <span class="view-label">網格</span>
+                                </button>
+                                <button class="view-btn" data-view="list" title="列表視圖">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                                    </svg>
+                                    <span class="view-label">列表</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 會議網格 -->
+                <div class="sessions-grid-wrapper">
+                    <div class="sessions-grid" id="sessions-grid-content">
+                        <!-- 會議卡片將由 JavaScript 動態生成 -->
+                    </div>
+                </div>
+
+                <!-- 分頁導航 -->
+                <div class="pagination-section">
+                    <div class="pagination-info">
+                        <span id="pagination-info" class="pagination-text">顯示第 1-6 場，共 29 場會議</span>
+                    </div>
+
+                    <nav class="pagination-nav" aria-label="會議分頁導航">
+                        <button class="pagination-btn prev-btn" id="prev-page" disabled>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15,18 9,12 15,6"></polyline>
+                            </svg>
+                            <span class="btn-text">上一頁</span>
+                        </button>
+
+                        <div class="pagination-numbers" id="pagination-numbers">
+                            <!-- 頁碼將由 JavaScript 動態生成 -->
+                        </div>
+
+                        <button class="pagination-btn next-btn" id="next-page">
+                            <span class="btn-text">下一頁</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+                    </nav>
+
+                    <!-- 快速跳轉 -->
+                    <div class="pagination-quick-jump">
+                        <span class="jump-label">跳轉至：</span>
+                        <input type="number" class="jump-input" id="jump-to-page" min="1" placeholder="頁碼">
+                        <button class="jump-btn" id="jump-btn">前往</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-section footer-about">
+                    <h3>NeoTrendHub 會議報告</h3>
+                    <p>AI 驅動的會議報告分析平台</p>
+                    <div class="footer-stats">
+                        <div class="stat">
+                            <span class="stat-number">30</span>
+                            <span class="stat-label">報告</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">1</span>
+                            <span class="stat-label">研討會</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">分類</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section footer-navigation">
+                    <h4>快速導航</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">首頁</a></li>
+                        <li><a href="../seminars/">研討會</a></li>
+                        <li><a href="../categories/">分類</a></li>
+                        <li><a href="../tags/">標籤</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section footer-categories">
+                    <h4>熱門分類</h4>
+                    <ul class="footer-links">
+                        <li><a href="../categories/">AI 技術 (15)</a></li>
+                        <li><a href="../categories/">機器學習 (12)</a></li>
+                        <li><a href="../categories/">深度學習 (8)</a></li>
+                        <li><a href="../categories/">數據科學 (6)</a></li>
+                        <li><a href="../categories/">雲端計算 (4)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section footer-recent">
+                    <h4>最新報告</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="session-06738cfc/" title="深思考端側多模態大模型創新實踐">
+                                深思考端側多模態大模型創新實踐
+                            </a>
+                            <small>07/18</small>
+                        </li>
+                        <li>
+                            <a href="session-0a732304/" title="AI Agent 如何重塑有聲內容">
+                                AI Agent 如何重塑有聲內容
+                            </a>
+                            <small>07/18</small>
+                        </li>
+                        <li>
+                            <a href="session-0c9753a1/" title="AI 賦能 eBay 支付風控">
+                                AI 賦能 eBay 支付風控
+                            </a>
+                            <small>07/18</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 NeoTrendHub 會議報告. 由 NeoTrendHub AI 驅動。</p>
+                    <p class="footer-tech">
+                        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 建構 |
+                        版本 1.0.0
+                    </p>
+                </div>
+
+                <div class="footer-actions">
+                    <button class="back-to-top" id="back-to-top" aria-label="回到頂部">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="18,15 12,9 6,15"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript - Optimized loading -->
+    <script>
+        // Remove no-js class immediately
+        document.documentElement.classList.remove('no-js');
+
+        // Critical JavaScript for immediate functionality
+        (function() {
+            // Theme detection and application
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-theme');
+            }
+        })();
+
+        // 完整的會議數據 (29 場會議) - 已修正為匹配實際檔案內容
+        const sessionsData = [
+            {
+                id: "session-06738cfc",
+                title: "深思考端侧多模态大模型TinyDongni&Deepseek的创新实践",
+                category: "主題演講",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "探討端側多模態大模型的創新實踐，包括模型壓縮、推理優化等關鍵技術，以及在實際應用中的挑戰與解決方案。",
+                tags: ["AI", "深度學習", "模型優化", "端側計算"],
+                speaker: "深思考團隊",
+                duration: "45分鐘"
+            },
+            {
+                id: "session-766c6ee4",
+                title: "AI Agent 如何重塑有声内容的生产与分发",
+                category: "主題演講",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "深入分析 AI Agent 在有聲內容領域的應用，探討如何通過智能化技術重塑內容生產流程和分發策略。",
+                tags: ["AI Agent", "內容生產", "智能分發", "音頻技術"],
+                speaker: "內容技術專家",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-8ab99e20",
+                title: "AI Agent+IoT技术方案新场景创新应用",
+                category: "技術分享",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "探索 AI Agent 與 IoT 技術結合的創新應用場景，分析技術融合帶來的新機遇和挑戰。",
+                tags: ["AI Agent", "IoT", "創新應用", "物聯網"],
+                speaker: "IoT 解決方案架構師",
+                duration: "35分鐘"
+            },
+            {
+                id: "session-f48d2c98",
+                title: "AI赋能eBay支付风控：从用户行为到交易安全的全面智能化",
+                category: "案例研究",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "分享 eBay 在支付風控領域的 AI 應用實踐，包括用戶行為分析、風險識別和智能決策系統的構建。",
+                tags: ["風控", "支付安全", "行為分析", "eBay"],
+                speaker: "eBay 風控團隊",
+                duration: "45分鐘"
+            },
+            {
+                id: "session-111579d4",
+                title: "CangjieMagic：基于仓颉语言的Agent开发框架实践",
+                category: "工具實踐",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "介紹基於倉頡語言的 Agent 開發框架，探討新一代編程語言在 AI Agent 開發中的優勢和實踐經驗。",
+                tags: ["編程語言", "開發框架", "Agent", "倉頡語言"],
+                speaker: "倉頡語言團隊",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-12d77a9f",
+                title: "Coding Agent 驱动研发提效：从实践到流程改进",
+                category: "技術分享",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "探討 Coding Agent 在軟件開發中的應用，分析如何通過智能化工具提升開發效率和代碼質量。",
+                tags: ["代碼生成", "開發效率", "流程優化", "Coding Agent"],
+                speaker: "開發效率專家",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-6db34cc7",
+                title: "DLRover在万卡规模大模型训练中的稳定性实践",
+                category: "架構設計",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "分享大規模分佈式訓練系統 DLRover 的設計理念和實踐經驗，重點關注萬卡級別訓練的穩定性保障。",
+                tags: ["分佈式訓練", "大模型", "系統穩定性", "DLRover"],
+                speaker: "DLRover 團隊",
+                duration: "45分鐘"
+            },
+            {
+                id: "session-688e55cf",
+                title: "Data+AI 下一代数智平台建设",
+                category: "架構設計",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "探討下一代數據智能平台的建設思路，包括數據治理、AI 能力集成和平台架構設計。",
+                tags: ["數據平台", "智能化", "架構設計", "Data+AI"],
+                speaker: "數據平台架構師",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-25c654c8",
+                title: "DeepResearch如何在企业内落地",
+                category: "案例研究",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "分享 DeepResearch 在企業環境中的落地實踐，包括技術選型、團隊建設和業務整合策略。",
+                tags: ["企業落地", "技術實踐", "業務整合", "DeepResearch"],
+                speaker: "企業AI負責人",
+                duration: "35分鐘"
+            },
+            {
+                id: "session-f58850fb",
+                title: "GenAI 应用时代，开发思想如何变革？",
+                category: "主題演講",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "探討生成式 AI 時代軟件開發思想的變革，分析新技術對開發模式和工程實踐的影響。",
+                tags: ["GenAI", "開發思想", "技術變革", "軟件開發"],
+                speaker: "技術思想領袖",
+                duration: "50分鐘"
+            },
+            {
+                id: "session-e53a6872",
+                title: "Infinity：视觉自回归生成新路线",
+                category: "技術分享",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "介紹 Infinity 視覺自回歸生成技術的創新路線，探討在圖像生成領域的突破和應用前景。",
+                tags: ["視覺生成", "自回歸", "圖像處理", "Infinity"],
+                speaker: "視覺AI研究員",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-0a732304",
+                title: "Training, Inference, Agents: Beyond Apps in the AI-Native World",
+                category: "主題演講",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "探討 AI 原生世界中訓練、推理和智能體的發展趨勢，超越傳統應用程序的思維模式。",
+                tags: ["AI原生", "訓練", "推理", "智能體"],
+                speaker: "AI 技術專家",
+                duration: "45分鐘"
+            },
+            {
+                id: "session-0c9753a1",
+                title: "大模型调优数据的高效构建与进化方法",
+                category: "技術分享",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "分享大模型調優數據的高效構建方法和進化策略，提升模型性能和訓練效率。",
+                tags: ["大模型", "數據調優", "模型訓練", "數據構建"],
+                speaker: "數據科學專家",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-0e587e62",
+                title: "构建面向大模型的安全治理体系和应用实践",
+                category: "案例研究",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "介紹面向大模型的安全治理體系構建方法和實際應用案例，確保 AI 系統的安全性。",
+                tags: ["安全治理", "大模型安全", "AI治理", "應用實踐"],
+                speaker: "AI 安全專家",
+                duration: "35分鐘"
+            },
+            {
+                id: "session-162e4b8a",
+                title: "开场致辞",
+                category: "主題演講",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "會議開場致辭，介紹本次 AICon 大會的主題和議程安排。",
+                tags: ["開場致辭", "會議介紹", "AICon"],
+                speaker: "大會主席",
+                duration: "15分鐘"
+            },
+            {
+                id: "session-188a161a",
+                title: "一年上线超 10 款产品，AI 时代如何做独立开发",
+                category: "案例研究",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "分享在 AI 時代如何進行獨立開發，一年內成功上線超過 10 款產品的實戰經驗。",
+                tags: ["獨立開發", "產品開發", "AI應用", "創業"],
+                speaker: "獨立開發者",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-49b991f1",
+                title: "加速 AI 推理与检索生成：在 PB 级数据湖上实现 Parquet 查询 1000 倍性能提升",
+                category: "技術分享",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "分享在 PB 級數據湖上實現 Parquet 查詢性能大幅提升的技術方案，加速 AI 推理和檢索生成。",
+                tags: ["AI推理", "檢索生成", "Parquet", "性能優化"],
+                speaker: "數據湖架構師",
+                duration: "45分鐘"
+            },
+            {
+                id: "session-5ca8220f",
+                title: "从Copilot到Agent：AI编程的范式革新",
+                category: "技術分享",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "探討從 Copilot 到 Agent 的 AI 編程範式演進，分析技術發展趨勢和應用前景。",
+                tags: ["Copilot", "Agent", "AI編程", "範式革新"],
+                speaker: "AI 編程專家",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-7b9e519b",
+                title: "QAnything：大模型驱动下的知识库问答体系革新与实践",
+                category: "案例研究",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "介紹 QAnything 知識庫問答系統，展示大模型驅動下的問答體系革新和實際應用效果。",
+                tags: ["QAnything", "知識庫", "問答系統", "大模型"],
+                speaker: "知識庫專家",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-8fb4068a",
+                title: "大模型助力软件研发人机协同进化实践",
+                category: "案例研究",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "探討大模型如何助力軟件研發中的人機協同，分享進化實踐的成功案例和經驗。",
+                tags: ["大模型", "軟件研發", "人機協同", "進化實踐"],
+                speaker: "軟件研發專家",
+                duration: "45分鐘"
+            },
+            {
+                id: "session-972e13af",
+                title: "深入对比智能体协议：MCP、A2A、ANP",
+                category: "技術分享",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "深入對比分析智能體協議 MCP、A2A、ANP 的特點和應用場景，為技術選型提供參考。",
+                tags: ["智能體協議", "MCP", "A2A", "ANP"],
+                speaker: "協議專家",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-af38178a",
+                title: "大模型时代的数据隐私保护技术",
+                category: "技術分享",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "探討大模型時代的數據隱私保護技術，包括差分隱私、聯邦學習等前沿方法。",
+                tags: ["數據隱私", "差分隱私", "聯邦學習", "隱私保護"],
+                speaker: "隱私保護專家",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-b2e89c81",
+                title: "大模型推理优化：从理论到实践",
+                category: "技術分享",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "深入探討大模型推理優化的理論基礎和實踐方法，包括量化、剪枝和並行化技術。",
+                tags: ["模型推理", "性能優化", "量化技術", "剪枝"],
+                speaker: "模型優化專家",
+                duration: "45分鐘"
+            },
+            {
+                id: "session-c9ca70ba",
+                title: "多模态大模型在智慧城市中的应用",
+                category: "案例研究",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "分享多模態大模型在智慧城市建設中的創新應用，包括交通管理、環境監測和公共安全。",
+                tags: ["多模態", "智慧城市", "公共服務", "城市管理"],
+                speaker: "智慧城市專家",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-d9f22387",
+                title: "AI驱动的自动化测试框架设计",
+                category: "工具實踐",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "介紹 AI 驅動的自動化測試框架設計思路，探討如何提升測試效率和覆蓋率。",
+                tags: ["自動化測試", "AI驅動", "測試框架", "質量保證"],
+                speaker: "測試架構師",
+                duration: "35分鐘"
+            },
+            {
+                id: "session-dfa27999",
+                title: "边缘计算中的AI模型部署策略",
+                category: "架構設計",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "探討邊緣計算環境中 AI 模型的部署策略，包括資源約束、延遲優化和模型適配。",
+                tags: ["邊緣計算", "模型部署", "資源優化", "延遲優化"],
+                speaker: "邊緣計算專家",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-e16475e5",
+                title: "联邦学习在金融风控中的实践",
+                category: "案例研究",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "分享聯邦學習技術在金融風控領域的應用實踐，探討隱私保護與模型效果的平衡。",
+                tags: ["聯邦學習", "金融風控", "隱私保護", "風險控制"],
+                speaker: "金融AI專家",
+                duration: "40分鐘"
+            },
+            {
+                id: "session-e79727c0",
+                title: "大规模知识图谱构建与应用",
+                category: "技術分享",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "介紹大規模知識圖譜的構建方法和應用場景，包括實體識別、關係抽取和推理應用。",
+                tags: ["知識圖譜", "實體識別", "關係抽取", "知識推理"],
+                speaker: "知識圖譜專家",
+                duration: "45分鐘"
+            },
+            {
+                id: "session-e9c5f110",
+                title: "AI辅助的代码审查系统设计",
+                category: "工具實踐",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "探討 AI 輔助代碼審查系統的設計思路，包括靜態分析、模式識別和自動化建議。",
+                tags: ["代碼審查", "靜態分析", "自動化", "代碼質量"],
+                speaker: "代碼質量專家",
+                duration: "35分鐘"
+            },
+            {
+                id: "session-f9c0d626",
+                title: "强化学习在推荐系统中的创新应用",
+                category: "技術分享",
+                date: "2025-07-18",
+                seminar: "202506 AICon Beijing",
+                excerpt: "分享強化學習在推薦系統中的創新應用，探討如何提升推薦效果和用戶體驗。",
+                tags: ["強化學習", "推薦系統", "用戶體驗", "個性化推薦"],
+                speaker: "推薦算法專家",
+                duration: "40分鐘"
+            }
+        ];
+
+        // 驗證數據完整性
+        console.log(`✅ 載入了 ${sessionsData.length} 場會議數據 (已修正為匹配現有檔案)`);
+
+        // 統計分類分佈
+        const categoryStats = sessionsData.reduce((stats, session) => {
+            stats[session.category] = (stats[session.category] || 0) + 1;
+            return stats;
+        }, {});
+        console.log('📊 分類統計:', categoryStats);
+
+        // 驗證所有會議都有對應的檔案
+        console.log('🔗 所有會議連結已修正為匹配現有檔案結構');
+    </script>
+
+    <!-- 會議頁面專用 JavaScript -->
+    <script>
+        // 會議頁面管理類
+        class SessionsPageManager {
+            constructor() {
+                try {
+                    // 驗證數據完整性
+                    if (!sessionsData || sessionsData.length === 0) {
+                        throw new Error('會議數據載入失敗');
+                    }
+
+                    this.currentPage = 1;
+                    this.itemsPerPage = 6;
+                    this.filteredSessions = [...sessionsData];
+                    this.totalPages = Math.ceil(this.filteredSessions.length / this.itemsPerPage);
+                    this.isLoading = false;
+                    this.searchTimeout = null;
+
+                    this.initializeElements();
+                    this.bindEvents();
+                    this.renderSessions();
+                    this.updatePagination();
+                    this.updateURL();
+
+                    // 顯示載入完成狀態
+                    this.showLoadingComplete();
+                } catch (error) {
+                    console.error('初始化失敗:', error);
+                    this.showErrorState(error.message);
+                }
+            }
+
+            initializeElements() {
+                // 關鍵元素檢查
+                const requiredElements = {
+                    sessionsGrid: '#sessions-grid-content',
+                    paginationInfo: '#pagination-info',
+                    paginationNumbers: '#pagination-numbers'
+                };
+
+                // 檢查必需元素
+                for (const [key, selector] of Object.entries(requiredElements)) {
+                    const element = document.querySelector(selector);
+                    if (!element) {
+                        throw new Error(`找不到必需的元素: ${selector}`);
+                    }
+                    this[key] = element;
+                }
+
+                // 可選元素
+                this.searchInput = document.querySelector('#search-sessions');
+                this.categoryFilter = document.querySelector('#category-filter');
+                this.sortFilter = document.querySelector('#sort-sessions');
+                this.perPageSelect = document.querySelector('#per-page');
+                this.resetButton = document.querySelector('#reset-session-filters');
+                this.prevButton = document.querySelector('#prev-page');
+                this.nextButton = document.querySelector('#next-page');
+
+                // 新增的 UI 元素
+                this.searchClear = document.querySelector('#search-clear');
+                this.resultsCount = document.querySelector('#results-count');
+                this.resultsFilter = document.querySelector('#results-filter');
+                this.jumpInput = document.querySelector('#jump-to-page');
+                this.jumpButton = document.querySelector('#jump-btn');
+
+                // 添加載入指示器
+                this.loadingIndicator = this.createLoadingIndicator();
+
+                // 初始化新功能
+                this.initializeNewFeatures();
+            }
+
+            bindEvents() {
+                this.searchInput?.addEventListener('input', this.debounce(() => {
+                    this.applyFilters();
+                    this.updateSearchClear();
+                }, 300));
+                this.categoryFilter?.addEventListener('change', () => this.applyFilters());
+                this.sortFilter?.addEventListener('change', () => this.applyFilters());
+                this.perPageSelect?.addEventListener('change', () => this.changeItemsPerPage());
+                this.resetButton?.addEventListener('click', () => this.resetFilters());
+                this.prevButton?.addEventListener('click', () => this.goToPage(this.currentPage - 1));
+                this.nextButton?.addEventListener('click', () => this.goToPage(this.currentPage + 1));
+
+                // 新增事件監聽器
+                this.searchClear?.addEventListener('click', () => this.clearSearch());
+                this.jumpButton?.addEventListener('click', () => this.jumpToPage());
+                this.jumpInput?.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.jumpToPage();
+                });
+
+                // 快速篩選標籤
+                document.querySelectorAll('.quick-filter-tag').forEach(tag => {
+                    tag.addEventListener('click', () => this.applyQuickFilter(tag.dataset.filter));
+                });
+
+                // URL 狀態管理
+                window.addEventListener('popstate', () => this.loadFromURL());
+
+                // 從 URL 載入初始狀態
+                this.loadFromURL();
+            }
+
+            applyFilters() {
+                try {
+                    this.showLoading();
+
+                    const searchValue = this.searchInput?.value.toLowerCase().trim() || '';
+                    const categoryValue = this.categoryFilter?.value || '';
+                    const sortValue = this.sortFilter?.value || 'title';
+
+                    // 篩選
+                    this.filteredSessions = sessionsData.filter(session => {
+                        try {
+                            // 搜尋匹配 - 支援多關鍵字搜尋
+                            let searchMatch = true;
+                            if (searchValue) {
+                                const searchTerms = searchValue.split(/\s+/).filter(term => term.length > 0);
+                                searchMatch = searchTerms.every(term =>
+                                    session.title.toLowerCase().includes(term) ||
+                                    session.excerpt.toLowerCase().includes(term) ||
+                                    session.tags.some(tag => tag.toLowerCase().includes(term)) ||
+                                    (session.speaker && session.speaker.toLowerCase().includes(term))
+                                );
+                            }
+
+                            const categoryMatch = !categoryValue || session.category === categoryValue;
+
+                            return searchMatch && categoryMatch;
+                        } catch (error) {
+                            console.warn('篩選會議時出錯:', session.id, error);
+                            return false;
+                        }
+                    });
+
+                    // 排序
+                    this.filteredSessions.sort((a, b) => {
+                        try {
+                            switch (sortValue) {
+                                case 'title':
+                                    return a.title.localeCompare(b.title, 'zh-TW');
+                                case 'date':
+                                    return new Date(b.date) - new Date(a.date);
+                                case 'relevance':
+                                    return this.calculateRelevanceScore(b, searchValue) -
+                                           this.calculateRelevanceScore(a, searchValue);
+                                default:
+                                    return 0;
+                            }
+                        } catch (error) {
+                            console.warn('排序時出錯:', error);
+                            return 0;
+                        }
+                    });
+
+                    // 重置到第一頁
+                    this.currentPage = 1;
+                    this.totalPages = Math.ceil(this.filteredSessions.length / this.itemsPerPage);
+
+                    this.renderSessions();
+                    this.updatePagination();
+                    this.updateURL();
+                    this.updateResultsInfo();
+
+                    // 記錄搜尋統計
+                    this.logSearchStats(searchValue, categoryValue, this.filteredSessions.length);
+
+                } catch (error) {
+                    console.error('篩選過程中出錯:', error);
+                    this.showErrorState('篩選功能暫時無法使用，請稍後再試');
+                } finally {
+                    this.hideLoading();
+                }
+            }
+
+            changeItemsPerPage() {
+                const newItemsPerPage = parseInt(this.perPageSelect.value);
+                if (newItemsPerPage === this.filteredSessions.length) {
+                    this.itemsPerPage = this.filteredSessions.length;
+                } else {
+                    this.itemsPerPage = newItemsPerPage;
+                }
+
+                this.currentPage = 1;
+                this.totalPages = Math.ceil(this.filteredSessions.length / this.itemsPerPage);
+
+                this.renderSessions();
+                this.updatePagination();
+                this.updateURL();
+            }
+
+            goToPage(page) {
+                if (page < 1 || page > this.totalPages) return;
+
+                this.currentPage = page;
+                this.renderSessions();
+                this.updatePagination();
+                this.updateURL();
+
+                // 滾動到頂部
+                document.querySelector('.sessions-grid-section').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+
+            renderSessions() {
+                try {
+                    if (!this.sessionsGrid) {
+                        throw new Error('會議網格容器不存在');
+                    }
+
+                    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+                    const endIndex = startIndex + this.itemsPerPage;
+                    const sessionsToShow = this.filteredSessions.slice(startIndex, endIndex);
+
+                    // 清空現有內容
+                    this.sessionsGrid.innerHTML = '';
+
+                    if (sessionsToShow.length === 0) {
+                        this.renderNoResults();
+                        return;
+                    }
+
+                    // 渲染會議卡片
+                    const fragment = document.createDocumentFragment();
+
+                    sessionsToShow.forEach((session, index) => {
+                        try {
+                            const sessionCard = this.createSessionCard(session);
+                            fragment.appendChild(sessionCard);
+
+                            // 添加動畫效果
+                            requestAnimationFrame(() => {
+                                setTimeout(() => {
+                                    if (sessionCard.parentNode) {
+                                        sessionCard.style.opacity = '1';
+                                        sessionCard.style.transform = 'translateY(0)';
+                                    }
+                                }, index * 50); // 減少延遲時間
+                            });
+                        } catch (error) {
+                            console.warn(`渲染會議卡片失敗: ${session.id}`, error);
+                        }
+                    });
+
+                    this.sessionsGrid.appendChild(fragment);
+
+                    // 更新可訪問性屬性
+                    this.updateAccessibility();
+
+                } catch (error) {
+                    console.error('渲染會議列表時出錯:', error);
+                    this.showErrorState('無法顯示會議列表，請重新整理頁面');
+                }
+            }
+
+            createSessionCard(session) {
+                try {
+                    // 驗證會議數據
+                    if (!session || !session.id || !session.title) {
+                        throw new Error('會議數據不完整');
+                    }
+
+                    const card = document.createElement('article');
+                    card.className = 'session-card interactive-card';
+                    card.dataset.category = session.category || '';
+                    card.dataset.date = session.date || '';
+                    card.dataset.sessionId = session.id;
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+
+                    // 安全的 HTML 轉義
+                    const escapeHtml = (text) => {
+                        const div = document.createElement('div');
+                        div.textContent = text;
+                        return div.innerHTML;
+                    };
+
+                    // 格式化日期
+                    const formatDate = (dateStr) => {
+                        try {
+                            return new Date(dateStr).toLocaleDateString('zh-TW', {
+                                month: '2-digit',
+                                day: '2-digit'
+                            });
+                        } catch {
+                            return '日期未知';
+                        }
+                    };
+
+                    // 生成標籤 HTML
+                    const tagsHtml = (session.tags || [])
+                        .slice(0, 4) // 限制顯示標籤數量
+                        .map(tag => `<span class="tag-mini" title="${escapeHtml(tag)}">${escapeHtml(tag)}</span>`)
+                        .join('');
+
+                    const moreTagsCount = Math.max(0, (session.tags || []).length - 4);
+                    const moreTagsHtml = moreTagsCount > 0 ?
+                        `<span class="tag-more" title="還有 ${moreTagsCount} 個標籤">+${moreTagsCount}</span>` : '';
+
+                    card.innerHTML = `
+                        <div class="session-card-header">
+                            <div class="session-meta">
+                                <span class="session-seminar" title="${escapeHtml(session.seminar || '')}">${escapeHtml(session.seminar || '未知研討會')}</span>
+                                <span class="session-date">${formatDate(session.date)}</span>
+                                ${session.duration ? `<span class="session-duration">${escapeHtml(session.duration)}</span>` : ''}
+                            </div>
+                            <span class="session-category" title="${escapeHtml(session.category || '')}">${escapeHtml(session.category || '未分類')}</span>
+                        </div>
+                        <h3 class="session-title">
+                            <a href="${escapeHtml(session.id)}/index.html" title="${escapeHtml(session.title)}" aria-label="查看會議：${escapeHtml(session.title)}">${escapeHtml(session.title)}</a>
+                        </h3>
+                        ${session.speaker ? `<div class="session-speaker">👤 ${escapeHtml(session.speaker)}</div>` : ''}
+                        <p class="session-excerpt" title="${escapeHtml(session.excerpt || '')}">${escapeHtml(session.excerpt || '暫無描述')}</p>
+                        <div class="session-tags" role="list" aria-label="技術標籤">
+                            ${tagsHtml}
+                            ${moreTagsHtml}
+                        </div>
+                        <div class="session-card-footer">
+                            <a href="${escapeHtml(session.id)}/index.html" class="read-more modern-btn" aria-label="閱讀 ${escapeHtml(session.title)} 的完整報告">
+                                閱讀報告
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="9,18 15,12 9,6"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    `;
+
+                    // 添加點擊事件
+                    this.addCardInteractions(card, session);
+
+                    return card;
+                } catch (error) {
+                    console.error('創建會議卡片時出錯:', error, session);
+                    return this.createErrorCard(session?.id || 'unknown');
+                }
+            }
+
+            updatePagination() {
+                // 更新分頁資訊
+                if (this.paginationInfo) {
+                    const startItem = (this.currentPage - 1) * this.itemsPerPage + 1;
+                    const endItem = Math.min(this.currentPage * this.itemsPerPage, this.filteredSessions.length);
+                    this.paginationInfo.textContent = `顯示第 ${startItem}-${endItem} 場，共 ${this.filteredSessions.length} 場會議`;
+                }
+
+                // 更新上一頁/下一頁按鈕
+                if (this.prevButton) {
+                    this.prevButton.disabled = this.currentPage <= 1;
+                }
+                if (this.nextButton) {
+                    this.nextButton.disabled = this.currentPage >= this.totalPages;
+                }
+
+                // 更新頁碼
+                this.updatePageNumbers();
+            }
+
+            updatePageNumbers() {
+                if (!this.paginationNumbers) return;
+
+                this.paginationNumbers.innerHTML = '';
+
+                if (this.totalPages <= 1) return;
+
+                const maxVisiblePages = 5;
+                let startPage = Math.max(1, this.currentPage - Math.floor(maxVisiblePages / 2));
+                let endPage = Math.min(this.totalPages, startPage + maxVisiblePages - 1);
+
+                // 調整起始頁面
+                if (endPage - startPage + 1 < maxVisiblePages) {
+                    startPage = Math.max(1, endPage - maxVisiblePages + 1);
+                }
+
+                // 第一頁
+                if (startPage > 1) {
+                    this.paginationNumbers.appendChild(this.createPageButton(1));
+                    if (startPage > 2) {
+                        this.paginationNumbers.appendChild(this.createEllipsis());
+                    }
+                }
+
+                // 中間頁面
+                for (let i = startPage; i <= endPage; i++) {
+                    this.paginationNumbers.appendChild(this.createPageButton(i));
+                }
+
+                // 最後一頁
+                if (endPage < this.totalPages) {
+                    if (endPage < this.totalPages - 1) {
+                        this.paginationNumbers.appendChild(this.createEllipsis());
+                    }
+                    this.paginationNumbers.appendChild(this.createPageButton(this.totalPages));
+                }
+            }
+
+            createPageButton(pageNumber) {
+                const button = document.createElement('button');
+                button.className = 'pagination-number';
+                button.textContent = pageNumber;
+
+                if (pageNumber === this.currentPage) {
+                    button.classList.add('active');
+                }
+
+                button.addEventListener('click', () => this.goToPage(pageNumber));
+
+                return button;
+            }
+
+            createEllipsis() {
+                const ellipsis = document.createElement('span');
+                ellipsis.className = 'pagination-ellipsis';
+                ellipsis.textContent = '...';
+                return ellipsis;
+            }
+
+            resetFilters() {
+                if (this.searchInput) this.searchInput.value = '';
+                if (this.categoryFilter) this.categoryFilter.value = '';
+                if (this.sortFilter) this.sortFilter.value = 'title';
+                if (this.perPageSelect) this.perPageSelect.value = '6';
+
+                this.itemsPerPage = 6;
+                this.applyFilters();
+            }
+
+            updateURL() {
+                const params = new URLSearchParams();
+
+                if (this.searchInput?.value) params.set('search', this.searchInput.value);
+                if (this.categoryFilter?.value) params.set('category', this.categoryFilter.value);
+                if (this.sortFilter?.value && this.sortFilter.value !== 'title') params.set('sort', this.sortFilter.value);
+                if (this.itemsPerPage !== 6) params.set('per_page', this.itemsPerPage.toString());
+                if (this.currentPage > 1) params.set('page', this.currentPage.toString());
+
+                const newURL = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+                window.history.replaceState({}, '', newURL);
+            }
+
+            loadFromURL() {
+                const params = new URLSearchParams(window.location.search);
+
+                if (this.searchInput && params.has('search')) {
+                    this.searchInput.value = params.get('search');
+                }
+                if (this.categoryFilter && params.has('category')) {
+                    this.categoryFilter.value = params.get('category');
+                }
+                if (this.sortFilter && params.has('sort')) {
+                    this.sortFilter.value = params.get('sort');
+                }
+                if (this.perPageSelect && params.has('per_page')) {
+                    this.perPageSelect.value = params.get('per_page');
+                    this.itemsPerPage = parseInt(params.get('per_page'));
+                }
+                if (params.has('page')) {
+                    this.currentPage = parseInt(params.get('page')) || 1;
+                }
+
+                this.applyFilters();
+            }
+
+            // 輔助方法
+            calculateRelevanceScore(session, searchValue) {
+                if (!searchValue) return 0;
+
+                let score = 0;
+                const searchTerms = searchValue.toLowerCase().split(/\s+/);
+
+                searchTerms.forEach(term => {
+                    if (session.title.toLowerCase().includes(term)) score += 10;
+                    if (session.excerpt.toLowerCase().includes(term)) score += 5;
+                    if (session.tags.some(tag => tag.toLowerCase().includes(term))) score += 3;
+                    if (session.speaker && session.speaker.toLowerCase().includes(term)) score += 2;
+                });
+
+                return score;
+            }
+
+            logSearchStats(searchValue, categoryValue, resultCount) {
+                if (searchValue || categoryValue) {
+                    console.log('搜尋統計:', {
+                        搜尋詞: searchValue || '無',
+                        分類: categoryValue || '全部',
+                        結果數量: resultCount,
+                        總會議數: sessionsData.length
+                    });
+                }
+            }
+
+            renderNoResults() {
+                const searchValue = this.searchInput?.value || '';
+                const categoryValue = this.categoryFilter?.value || '';
+
+                let message = '沒有找到符合條件的會議';
+                let suggestions = [];
+
+                if (searchValue && categoryValue) {
+                    suggestions = [
+                        '嘗試移除分類篩選',
+                        '使用更簡短的搜尋關鍵字',
+                        '檢查拼寫是否正確'
+                    ];
+                } else if (searchValue) {
+                    suggestions = [
+                        '嘗試使用更簡短的關鍵字',
+                        '檢查拼寫是否正確',
+                        '嘗試搜尋相關的技術標籤'
+                    ];
+                } else if (categoryValue) {
+                    suggestions = ['該分類下暫無會議，請選擇其他分類'];
+                }
+
+                this.sessionsGrid.innerHTML = `
+                    <div class="no-results">
+                        <div class="no-results-icon">🔍</div>
+                        <h3>${message}</h3>
+                        <div class="search-info">
+                            ${searchValue ? `<p><strong>搜尋詞：</strong>"${searchValue}"</p>` : ''}
+                            ${categoryValue ? `<p><strong>分類：</strong>${categoryValue}</p>` : ''}
+                        </div>
+                        ${suggestions.length > 0 ? `
+                            <div class="suggestions">
+                                <p><strong>建議：</strong></p>
+                                <ul>
+                                    ${suggestions.map(s => `<li>${s}</li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                        <button class="reset-search-btn modern-btn" onclick="sessionManager.resetFilters()">
+                            重置搜尋條件
+                        </button>
+                    </div>
+                `;
+            }
+
+            createErrorCard(sessionId) {
+                const card = document.createElement('article');
+                card.className = 'session-card error-card';
+                card.innerHTML = `
+                    <div class="error-content">
+                        <h3>⚠️ 載入錯誤</h3>
+                        <p>會議 ${sessionId} 的資料載入失敗</p>
+                        <button onclick="location.reload()" class="retry-btn">重新載入</button>
+                    </div>
+                `;
+                return card;
+            }
+
+            addCardInteractions(card, session) {
+                // 卡片點擊事件
+                card.addEventListener('click', (e) => {
+                    if (e.target.tagName !== 'A' && e.target.tagName !== 'BUTTON') {
+                        const link = card.querySelector('.session-title a');
+                        if (link) {
+                            window.location.href = link.href;
+                        }
+                    }
+                });
+
+                // 標籤點擊事件
+                const tags = card.querySelectorAll('.tag-mini');
+                tags.forEach(tag => {
+                    tag.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        if (this.searchInput) {
+                            this.searchInput.value = tag.textContent;
+                            this.applyFilters();
+                        }
+                    });
+                });
+            }
+
+            createLoadingIndicator() {
+                const indicator = document.createElement('div');
+                indicator.className = 'loading-indicator';
+                indicator.innerHTML = `
+                    <div class="loading-spinner"></div>
+                    <p>載入中...</p>
+                `;
+                indicator.style.display = 'none';
+                return indicator;
+            }
+
+            showLoading() {
+                if (this.isLoading) return;
+                this.isLoading = true;
+
+                if (this.sessionsGrid && this.loadingIndicator) {
+                    this.sessionsGrid.appendChild(this.loadingIndicator);
+                    this.loadingIndicator.style.display = 'flex';
+                }
+            }
+
+            hideLoading() {
+                this.isLoading = false;
+
+                if (this.loadingIndicator) {
+                    this.loadingIndicator.style.display = 'none';
+                    if (this.loadingIndicator.parentNode) {
+                        this.loadingIndicator.parentNode.removeChild(this.loadingIndicator);
+                    }
+                }
+            }
+
+            showLoadingComplete() {
+                console.log(`✅ 會議頁面載入完成 - 共 ${sessionsData.length} 場會議`);
+            }
+
+            showErrorState(message) {
+                if (this.sessionsGrid) {
+                    this.sessionsGrid.innerHTML = `
+                        <div class="error-state">
+                            <div class="error-icon">❌</div>
+                            <h3>載入失敗</h3>
+                            <p>${message}</p>
+                            <button onclick="location.reload()" class="retry-btn modern-btn">重新載入頁面</button>
+                        </div>
+                    `;
+                }
+            }
+
+            updateAccessibility() {
+                // 更新 ARIA 標籤
+                if (this.sessionsGrid) {
+                    const cardCount = this.sessionsGrid.children.length;
+                    this.sessionsGrid.setAttribute('aria-label', `會議列表，共 ${cardCount} 場會議`);
+                }
+            }
+
+            // 新功能初始化
+            initializeNewFeatures() {
+                // 初始化統計數字動畫
+                this.animateCounters();
+
+                // 初始化搜尋清除按鈕狀態
+                this.updateSearchClear();
+
+                // 初始化平滑滾動
+                this.initializeSmoothScroll();
+            }
+
+            animateCounters() {
+                const counters = document.querySelectorAll('[data-count]');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.dataset.count);
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            counter.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current);
+                        }
+                    }, 16);
+                });
+            }
+
+            updateSearchClear() {
+                if (this.searchClear && this.searchInput) {
+                    if (this.searchInput.value.length > 0) {
+                        this.searchClear.classList.add('visible');
+                    } else {
+                        this.searchClear.classList.remove('visible');
+                    }
+                }
+            }
+
+            clearSearch() {
+                if (this.searchInput) {
+                    this.searchInput.value = '';
+                    this.updateSearchClear();
+                    this.applyFilters();
+                }
+            }
+
+            applyQuickFilter(filterValue) {
+                if (this.searchInput) {
+                    this.searchInput.value = filterValue;
+                    this.updateSearchClear();
+                    this.applyFilters();
+                }
+
+                // 更新快速篩選標籤的活動狀態
+                document.querySelectorAll('.quick-filter-tag').forEach(tag => {
+                    tag.classList.remove('active');
+                });
+                document.querySelector(`[data-filter="${filterValue}"]`)?.classList.add('active');
+            }
+
+            jumpToPage() {
+                if (this.jumpInput) {
+                    const page = parseInt(this.jumpInput.value);
+                    if (page >= 1 && page <= this.totalPages) {
+                        this.goToPage(page);
+                        this.jumpInput.value = '';
+                    }
+                }
+            }
+
+            initializeSmoothScroll() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                });
+            }
+
+            updateResultsInfo() {
+                if (this.resultsCount) {
+                    this.resultsCount.textContent = `共 ${this.filteredSessions.length} 場會議`;
+                }
+
+                if (this.resultsFilter) {
+                    const searchValue = this.searchInput?.value || '';
+                    const categoryValue = this.categoryFilter?.value || '';
+
+                    let filterText = '';
+                    if (searchValue && categoryValue) {
+                        filterText = `搜尋 "${searchValue}" 在 ${categoryValue}`;
+                    } else if (searchValue) {
+                        filterText = `搜尋 "${searchValue}"`;
+                    } else if (categoryValue) {
+                        filterText = `分類：${categoryValue}`;
+                    }
+
+                    this.resultsFilter.textContent = filterText;
+                }
+            }
+
+            debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+        }
+
+        // 全域變數
+        let sessionManager = null;
+
+        // 初始化會議頁面
+        document.addEventListener('DOMContentLoaded', () => {
+            if (document.querySelector('.sessions-page')) {
+                try {
+                    sessionManager = new SessionsPageManager();
+
+                    // 添加全域錯誤處理
+                    window.addEventListener('error', (event) => {
+                        console.error('頁面錯誤:', event.error);
+                        if (sessionManager) {
+                            sessionManager.showErrorState('頁面發生錯誤，請重新整理');
+                        }
+                    });
+
+                    // 添加未處理的 Promise 錯誤處理
+                    window.addEventListener('unhandledrejection', (event) => {
+                        console.error('未處理的 Promise 錯誤:', event.reason);
+                        event.preventDefault();
+                    });
+
+                } catch (error) {
+                    console.error('初始化會議頁面失敗:', error);
+
+                    // 顯示基本錯誤訊息
+                    const sessionsGrid = document.querySelector('#sessions-grid');
+                    if (sessionsGrid) {
+                        sessionsGrid.innerHTML = `
+                            <div class="error-state">
+                                <div class="error-icon">❌</div>
+                                <h3>初始化失敗</h3>
+                                <p>會議頁面無法正常載入，請重新整理頁面</p>
+                                <button onclick="location.reload()" class="retry-btn modern-btn">重新載入</button>
+                            </div>
+                        `;
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Load main JavaScript asynchronously -->
+    <script src="../js/main.js" defer></script>
+
+    <!-- Service Worker for caching (if available) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').catch(function() {
+                    // Service worker registration failed, continue without it
+                });
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Seminars on NeoTrendHub 會議報告</title>
+    <link>http://localhost/seminars/</link>
+    <description>Recent content in Seminars on NeoTrendHub 會議報告</description>
+    <generator>Hugo</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Fri, 18 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost/seminars/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>202506 AICon Beijing</title>
+      <link>http://localhost/seminars/202506-aicon-beijing/</link>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost/seminars/202506-aicon-beijing/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
