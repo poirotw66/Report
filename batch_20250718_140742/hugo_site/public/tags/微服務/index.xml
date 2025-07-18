@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>微服務 on NeoTrendHub 會議報告</title><link>http://localhost/tags/%E5%BE%AE%E6%9C%8D%E5%8B%99/</link><description>Recent content in 微服務 on NeoTrendHub 會議報告</description><generator>Hugo</generator><language>zh-tw</language><lastBuildDate>Fri, 18 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost/tags/%E5%BE%AE%E6%9C%8D%E5%8B%99/index.xml" rel="self" type="application/rss+xml"/><item><title>CangjieMagic：基于仓颉语言的Agent开发框架实践</title><link>http://localhost/sessions/session-111579d4/</link><pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate><guid>http://localhost/sessions/session-111579d4/</guid><description>&lt;h2 id="會議資訊">會議資訊&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>研討會：&lt;/strong> 202506 AICon Beijing&lt;/li>
+&lt;li>&lt;strong>類型：&lt;/strong> 主題演講&lt;/li>
+&lt;li>&lt;strong>來源：&lt;/strong> &lt;a href="https://aicon.infoq.cn/2025/beijing/presentation/6525">https://aicon.infoq.cn/2025/beijing/presentation/6525&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="報告內容">報告內容&lt;/h2>
+&lt;p>好的，這是一份根據您提供的會議簡報內容，所生成的全方位綜合分析報告。&lt;/p>
+&lt;hr>
+&lt;h2 id="cangjiemagic基於倉頡語言的-agent-開發框架實踐---綜合分析報告">CangjieMagic：基於倉頡語言的 Agent 開發框架實踐 - 綜合分析報告&lt;/h2>
+&lt;p>&lt;strong>會議標題：&lt;/strong> CangjieMagic：基於倉頡語言的 Agent 開發框架實踐
+&lt;strong>研討會：&lt;/strong> 202506 AICon Beijing
+&lt;strong>類型：&lt;/strong> 主題演講
+&lt;strong>演講者：&lt;/strong> 董鑫，編程語言資深技術專家，華為2012實驗室&lt;/p></description></item><item><title>DLRover在万卡规模大模型训练中的稳定性实践</title><link>http://localhost/sessions/session-6db34cc7/</link><pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate><guid>http://localhost/sessions/session-6db34cc7/</guid><description>&lt;h2 id="會議資訊">會議資訊&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>研討會：&lt;/strong> 202506 AICon Beijing&lt;/li>
+&lt;li>&lt;strong>類型：&lt;/strong> 主題演講&lt;/li>
+&lt;li>&lt;strong>來源：&lt;/strong> &lt;a href="https://aicon.infoq.cn/2025/beijing/presentation/6483">https://aicon.infoq.cn/2025/beijing/presentation/6483&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="報告內容">報告內容&lt;/h2>
+&lt;p>好的，這是一份根據您提供的PPT內容，針對「DLRover在萬卡規模大模型訓練中的穩定性實踐」主題的綜合分析報告。&lt;/p></description></item><item><title>QAnything：大模型驱动下的知识库问答体系革新与实践</title><link>http://localhost/sessions/session-7b9e519b/</link><pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate><guid>http://localhost/sessions/session-7b9e519b/</guid><description>&lt;h2 id="會議資訊">會議資訊&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>研討會：&lt;/strong> 202506 AICon Beijing&lt;/li>
+&lt;li>&lt;strong>類型：&lt;/strong> 主題演講&lt;/li>
+&lt;li>&lt;strong>來源：&lt;/strong> &lt;a href="https://aicon.infoq.cn/2025/beijing/presentation/6594">https://aicon.infoq.cn/2025/beijing/presentation/6594&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="報告內容">報告內容&lt;/h2>
+&lt;h1 id="qanything大模型驅動下的知識庫問答體系革新與實踐---綜合分析報告">QAnything：大模型驅動下的知識庫問答體系革新與實踐 - 綜合分析報告&lt;/h1>
+&lt;h2 id="執行摘要">執行摘要&lt;/h2>
+&lt;p>本報告針對「QAnything：大模型驅動下的知識庫問答體系革新與實踐」主題演講的 PPT 內容進行全面分析。QAnything 是一個由騰訊與網易有道合作開發的、基於大型模型的知識庫問答系統。該系統以其自研的 RAG（Retrieval-Augmented Generation，檢索增強生成）引擎為核心，強調對全離線私有化部署的支援，並在多模態理解、複雜邏輯處理以及檢索精準度上取得了顯著突破。&lt;/p></description></item><item><title>Training, Inference, Agents: Beyond Apps in the AI-Native World</title><link>http://localhost/sessions/session-0a732304/</link><pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate><guid>http://localhost/sessions/session-0a732304/</guid><description>&lt;h2 id="會議資訊">會議資訊&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>研討會：&lt;/strong> 202506 AICon Beijing&lt;/li>
+&lt;li>&lt;strong>類型：&lt;/strong> 主題演講&lt;/li>
+&lt;li>&lt;strong>來源：&lt;/strong> &lt;a href="https://aicon.infoq.cn/2025/beijing/presentation/6531">https://aicon.infoq.cn/2025/beijing/presentation/6531&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="報告內容">報告內容&lt;/h2>
+&lt;h2 id="訓練推論代理ai原生世界中超越應用程式的發展綜合分析報告">「訓練、推論、代理：AI原生世界中超越應用程式的發展」綜合分析報告&lt;/h2>
+&lt;h3 id="報告概要">報告概要&lt;/h3>
+&lt;p>本報告旨在深入分析Mark Collier先生在「202506 AICon Beijing」主題演講《Training, Inference, Agents: Beyond Apps in the AI-Native World》的PPT內容。本次演講聚焦於在「AI原生」（AI-Native）新時代下，人工智能發展的三大核心支柱：訓練（Training）、推論（Inference）和代理（Agents）。報告將從會議概述、技術要點、商業價值、創新亮點以及趨勢洞察等多個維度，為讀者呈現一份全面而深入的分析，旨在闡明開源、基礎設施與社群在AI未來發展中的關鍵作用。&lt;/p></description></item><item><title>一年上线超 10 款产品，AI 时代如何做独立开发</title><link>http://localhost/sessions/session-188a161a/</link><pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate><guid>http://localhost/sessions/session-188a161a/</guid><description>&lt;h2 id="會議資訊">會議資訊&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>研討會：&lt;/strong> 202506 AICon Beijing&lt;/li>
+&lt;li>&lt;strong>類型：&lt;/strong> 主題演講&lt;/li>
+&lt;li>&lt;strong>來源：&lt;/strong> &lt;a href="https://aicon.infoq.cn/2025/beijing/presentation/6442">https://aicon.infoq.cn/2025/beijing/presentation/6442&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="報告內容">報告內容&lt;/h2>
+&lt;h2 id="aicon-beijing-202506-主題演講ai-時代如何做獨立開發綜合分析報告">AiCon Beijing 202506 主題演講：《AI 時代如何做獨立開發》綜合分析報告&lt;/h2>
+&lt;h3 id="報告概述">報告概述&lt;/h3>
+&lt;p>本報告旨在深入分析獨立開發者艾逗筆 (@idoubi) 在 2025 年 AiCon 全球人工智能開發與應用大會上發表的題為《AI 時代如何做獨立開發》的主題演講。演講者透過分享其在 AI 時代一年半內上線超過 10 款 AI 產品的實戰經驗，為廣大開發者和創業者提供了在快速變革的 AI 領域中進行獨立開發的實用策略、技術選型、商業洞察及未來方向。本報告將從會議概述、技術要點、商業價值、創新亮點及趨勢洞察五個維度進行全面而深入的剖析。&lt;/p></description></item><item><title>当产品经理开始AI编程，如何构建程序员与产品经理的协作新范式</title><link>http://localhost/sessions/session-e79727c0/</link><pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate><guid>http://localhost/sessions/session-e79727c0/</guid><description>&lt;h2 id="會議資訊">會議資訊&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>研討會：&lt;/strong> 202506 AICon Beijing&lt;/li>
+&lt;li>&lt;strong>類型：&lt;/strong> 主題演講&lt;/li>
+&lt;li>&lt;strong>來源：&lt;/strong> &lt;a href="https://aicon.infoq.cn/2025/beijing/presentation/6501">https://aicon.infoq.cn/2025/beijing/presentation/6501&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="報告內容">報告內容&lt;/h2>
+&lt;h2 id="當產品經理開始ai程式設計構建協作新範式aicon-beijing-2025-主題演講綜合分析報告">當產品經理開始AI程式設計：構建協作新範式——AICon Beijing 2025 主題演講綜合分析報告&lt;/h2>
+&lt;h3 id="報告概述">報告概述&lt;/h3>
+&lt;p>本報告旨在對何少甫先生（AI師傅聯合創始人 &amp;amp; 首席產品官）在AiCon Beijing 2025全球人工智慧開發與應用大會上的主題演講《當產品經理開始AI程式設計，如何建構程式設計師與產品經理的協作新範式》進行全面深入的分析。演講精闢地闡述了AI技術如何重塑軟體開發的協作模式，特別是產品經理與程式設計師之間的角色定位與職能邊界。本報告將從會議概述與核心內容、技術要點與實現細節、商業價值與應用場景、創新亮點與技術突破，以及趨勢洞察與未來展望五個面向，為讀者提供一份全面且專業的綜合分析。&lt;/p></description></item><item><title>能源行业基于大模型的数据治理和人工智能应用实践</title><link>http://localhost/sessions/session-af38178a/</link><pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate><guid>http://localhost/sessions/session-af38178a/</guid><description>&lt;h2 id="會議資訊">會議資訊&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>研討會：&lt;/strong> 202506 AICon Beijing&lt;/li>
+&lt;li>&lt;strong>類型：&lt;/strong> 主題演講&lt;/li>
+&lt;li>&lt;strong>來源：&lt;/strong> &lt;a href="https://aicon.infoq.cn/2025/beijing/presentation/6593">https://aicon.infoq.cn/2025/beijing/presentation/6593&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="報告內容">報告內容&lt;/h2>
+&lt;h2 id="能源行業基於大模型的數據治理和人工智能應用實踐雲鼎科技-aicon-beijing-2025-主題演講綜合分析報告">能源行業基於大模型的數據治理和人工智能應用實踐——雲鼎科技 AICon Beijing 2025 主題演講綜合分析報告&lt;/h2>
+&lt;p>本報告旨在深入剖析雲鼎科技在 2025 年 AICon Beijing 研討會上關於「能源行業基於大模型的數據治理和人工智能應用實踐」主題演講的 PPT 內容。報告將從會議概述、技術要點、商業價值、創新亮點及趨勢洞察等多維度進行全面分析，以期為不同背景的讀者提供專業且具深度的見解。&lt;/p></description></item></channel></rss>

@@ -1,0 +1,188 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-background">
+        <div class="hero-gradient"></div>
+        <div class="hero-pattern"></div>
+    </div>
+    <div class="hero-content container">
+        <div class="hero-badge">
+            <span class="badge-icon">📊</span>
+            <span class="badge-text">技術趨勢分析</span>
+        </div>
+        <h1 class="hero-title">
+            <span class="title-main">五大技術趨勢</span>
+            <span class="title-accent">洞察未來</span>
+        </h1>
+        <p class="hero-subtitle">
+            基於 30 場 AI 會議的深度分析，探索 AI 時代的核心技術發展方向，
+            <br class="hidden sm:block">
+            為您揭示塑造未來科技產業的關鍵趨勢
+        </p>
+
+        <!-- Trend Statistics -->
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-icon">🧠</div>
+                <div class="stat-content">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">核心趨勢</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">📈</div>
+                <div class="stat-content">
+                    <span class="stat-number">30</span>
+                    <span class="stat-label">相關報告</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">🔍</div>
+                <div class="stat-content">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">技術關鍵字</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">🌟</div>
+                <div class="stat-content">
+                    <span class="stat-number">85%</span>
+                    <span class="stat-label">覆蓋率</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="hero-cta">
+            <div class="trend-quick-nav">
+                <a href="#llm" class="trend-nav-item">
+                    <span class="nav-icon">🤖</span>
+                    <span class="nav-text">大模型 AI</span>
+                </a>
+                <a href="#agent" class="trend-nav-item">
+                    <span class="nav-icon">🎯</span>
+                    <span class="nav-text">AI Agent</span>
+                </a>
+                <a href="#edge" class="trend-nav-item">
+                    <span class="nav-icon">📱</span>
+                    <span class="nav-text">邊緣計算</span>
+                </a>
+                <a href="#data" class="trend-nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">數據智能</span>
+                </a>
+                <a href="#security" class="trend-nav-item">
+                    <span class="nav-icon">🛡️</span>
+                    <span class="nav-text">可信 AI</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trends Overview -->
+<section class="trends-overview">
+    <div class="container">
+        <div class="overview-header">
+            <h2 class="section-title">
+                <span class="title-icon">🎯</span>
+                趨勢概述
+            </h2>
+            <p class="section-subtitle">深度解析 AI 時代的技術發展脈絡</p>
+        </div>
+        
+        <div class="overview-content">
+            <div class="overview-text-card">
+                <div class="card-icon">📊</div>
+                <div class="card-content">
+                    <h3 class="card-title">數據驅動洞察</h3>
+                    <p class="card-description">
+                        基於對 30 場 AI 會議的深度分析，我們識別出五大核心技術趨勢，這些趨勢正在重塑整個科技產業的發展方向。
+                        從大模型的突破性進展到邊緣計算的普及應用，每個趨勢都代表著技術創新的重要里程碑。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="overview-highlights">
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🧠</div>
+                        <div class="highlight-content">
+                            <h4 class="highlight-title">智能化程度</h4>
+                            <p class="highlight-desc">持續提升</p>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">⚡</div>
+                        <div class="highlight-content">
+                            <h4 class="highlight-title">計算效率</h4>
+                            <p class="highlight-desc">大幅優化</p>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🔗</div>
+                        <div class="highlight-content">
+                            <h4 class="highlight-title">跨領域融合</h4>
+                            <p class="highlight-desc">加速發展</p>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🛡️</div>
+                        <div class="highlight-content">
+                            <h4 class="highlight-title">安全性要求</h4>
+                            <p class="highlight-desc">顯著提高</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Five Core Trends -->
+<section class="trends-grid-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="title-icon">🚀</span>
+                五大核心趨勢
+            </h2>
+            <p class="section-subtitle">深入了解每個技術趨勢的發展現狀和未來方向</p>
+        </div>
+        
+        <div class="trends-grid">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+
+<!-- Trends Analysis -->
+<section class="trends-analysis">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="title-icon">📈</span>
+                趨勢分析
+            </h2>
+            <p class="section-subtitle">基於會議報告數據的趨勢熱度和發展預測</p>
+        </div>
+        
+        <div class="analysis-content">
+            {{ if .Params.visualization_data }}
+            {{ if .Params.visualization_data.word_cloud }}
+            <div class="word-cloud-container">
+                <h3>熱門技術關鍵字</h3>
+                <div class="word-cloud">
+                    {{ range .Params.visualization_data.word_cloud }}
+                    <span class="word-item" data-frequency="{{ .frequency }}" data-importance="{{ .importance }}">
+                        {{ .word }}
+                    </span>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

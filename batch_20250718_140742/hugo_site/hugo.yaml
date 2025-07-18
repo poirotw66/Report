@@ -13,33 +13,33 @@ markup:
 menu:
   main:
   - name: 首頁
-    url: ../html/index.html
+    url: /
     weight: 10
   - name: 研討會
-    url: ../html/sessions/enhanced.html
+    url: /sessions/enhanced.html
     weight: 20
-  - name: 分類
-    url: ../html/categories/trends.html
+  - name: 趨勢分析
+    url: /categories/trends.html
     weight: 30
-  - name: 標籤
-    url: /tags/
-    weight: 40
 params:
-  description: AI 驅動的會議報告分析平台
+  description: AI 驅動的技術趨勢分析平台，為您提供最前沿的技術洞察和專業會議報告
   features:
-    block_based_design: true
-    dark_mode_support: true
-    multi_language: true
-    responsive_layout: true
+    modern_hero_section: true
+    card_based_layout: true
+    responsive_design: true
+    smooth_scrolling: true
   generator: NeoTrendHub Hugo Generator
   style_config:
-    layout_type: business
-    primary_color: '#3a86ff'
-    secondary_color: '#00bfff'
+    layout_type: modern
+    primary_color: '#6366f1'
+    secondary_color: '#8b5cf6'
     theme_variant: professional
-    typography: formal
+    typography: modern
   template_style: professional
   version: 1.0.0
+  brand:
+    icon: "🚀"
+    name: "NeoTrendHub"
 permalinks:
   posts: /posts/:slug/
 publishDir: public

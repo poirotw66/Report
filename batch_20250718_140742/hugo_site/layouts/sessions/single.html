@@ -1,0 +1,149 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-background">
+        <div class="hero-gradient"></div>
+        <div class="hero-pattern"></div>
+    </div>
+    <div class="hero-content container">
+        <div class="hero-badge">
+            <span class="badge-icon">💡</span>
+            <span class="badge-text">{{ .Params.session_type | default "技術分享" }}</span>
+        </div>
+        <h1 class="hero-title">
+            <span class="title-main">{{ .Title }}</span>
+            <span class="title-accent">實戰指南</span>
+        </h1>
+        <p class="hero-subtitle">
+            {{ .Params.description | default .Summary }}
+        </p>
+
+        <!-- Speaker Info -->
+        <div class="hero-cta">
+            {{ if .Params.speaker }}
+            <div class="speaker-info">
+                <div class="speaker-avatar">
+                    <span class="avatar-icon">👨‍💻</span>
+                </div>
+                <div class="speaker-details">
+                    <div class="speaker-name">{{ .Params.speaker.name }}</div>
+                    <div class="speaker-title">{{ .Params.speaker.title }}</div>
+                </div>
+            </div>
+            {{ end }}
+            <div class="session-meta-info">
+                {{ if .Params.seminar }}
+                <div class="meta-item">
+                    <span class="meta-icon">🎪</span>
+                    <span class="meta-text">{{ .Params.seminar }}</span>
+                </div>
+                {{ end }}
+                <div class="meta-item">
+                    <span class="meta-icon">📅</span>
+                    <span class="meta-text">{{ .Date.Format "2006年01月02日" }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Info Cards -->
+<section class="info-section">
+    <div class="container">
+        <div class="info-cards-grid">
+            {{ if .Params.seminar }}
+            <div class="info-card">
+                <div class="card-icon">🎪</div>
+                <div class="card-content">
+                    <h3 class="card-title">研討會</h3>
+                    <p class="card-description">{{ .Params.seminar }}</p>
+                </div>
+            </div>
+            {{ end }}
+            {{ if .Params.session_type }}
+            <div class="info-card">
+                <div class="card-icon">🎯</div>
+                <div class="card-content">
+                    <h3 class="card-title">會議類型</h3>
+                    <p class="card-description">{{ .Params.session_type }}</p>
+                </div>
+            </div>
+            {{ end }}
+            {{ if .Params.speaker }}
+            <div class="info-card">
+                <div class="card-icon">👨‍💻</div>
+                <div class="card-content">
+                    <h3 class="card-title">講者</h3>
+                    <p class="card-description">{{ .Params.speaker.name }}</p>
+                </div>
+            </div>
+            {{ end }}
+            {{ if .Params.source_url }}
+            <div class="info-card">
+                <div class="card-icon">🔗</div>
+                <div class="card-content">
+                    <h3 class="card-title">原始連結</h3>
+                    <p class="card-description">
+                        <a href="{{ .Params.source_url }}" target="_blank" class="external-link">
+                            查看詳情 ↗
+                        </a>
+                    </p>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+
+        <!-- Tags Section -->
+        {{ if .Params.tags }}
+        <div class="tags-section">
+            <h3 class="section-title">
+                <span class="title-icon">🏷️</span>
+                相關標籤
+            </h3>
+            <div class="tags-container">
+                {{ range .Params.tags }}
+                <span class="tag">{{ . }}</span>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>
+
+<!-- Main Content -->
+<article class="article-content">
+    <div class="container">
+        <div class="content-wrapper">
+            <!-- Executive Summary -->
+            {{ if .Params.executive_summary }}
+            <div class="executive-summary">
+                <div class="summary-header">
+                    <h2 class="summary-title">
+                        <span class="title-icon">📊</span>
+                        執行摘要
+                    </h2>
+                    <p class="summary-subtitle">{{ .Params.executive_summary.subtitle }}</p>
+                </div>
+                
+                <div class="summary-content">
+                    <div class="summary-card">
+                        <div class="card-header">
+                            <span class="card-icon">💡</span>
+                            <h3 class="card-title">核心洞察</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>{{ .Params.executive_summary.content }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+
+            <!-- Main Content Sections -->
+            <div class="content-sections">
+                {{ .Content }}
+            </div>
+        </div>
+    </div>
+</article>
+{{ end }}

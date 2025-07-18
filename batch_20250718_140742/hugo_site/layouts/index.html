@@ -1,29 +1,68 @@
 {{ define "main" }}
-<div class="homepage trends-overview">
-    <!-- 技術趨勢總覽標題區 -->
-    <section class="hero section-block trends-hero">
-        <h1 class="hero-title">{{ .Title | default .Site.Title }}</h1>
-        <p class="hero-subtitle">{{ .Description | default .Site.Params.description }}</p>
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-background">
+        <div class="hero-gradient"></div>
+        <div class="hero-pattern"></div>
+    </div>
+    <div class="hero-content container">
+        <div class="hero-badge">
+            <span class="badge-icon">🚀</span>
+            <span class="badge-text">AI 驅動分析</span>
+        </div>
+        <h1 class="hero-title">
+            <span class="title-main">{{ .Site.Params.brand.name | default "NeoTrendHub" }}</span>
+            <span class="title-accent">智能洞察</span>
+        </h1>
+        <p class="hero-subtitle">
+            {{ .Site.Params.description }}
+        </p>
 
-        {{ if .Params.total_sessions }}
+        <!-- Statistics -->
         <div class="hero-stats">
             <div class="stat-item">
-                <span class="stat-number">{{ .Params.total_sessions }}</span>
-                <span class="stat-label">分析會議</span>
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <span class="stat-number">{{ len .Site.RegularPages }}</span>
+                    <span class="stat-label">會議報告</span>
+                </div>
             </div>
-            {{ if .Params.seminars_analyzed }}
             <div class="stat-item">
-                <span class="stat-number">{{ len .Params.seminars_analyzed }}</span>
-                <span class="stat-label">研討會</span>
+                <div class="stat-icon">🎯</div>
+                <div class="stat-content">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">核心趨勢</span>
+                </div>
             </div>
-            {{ end }}
             <div class="stat-item">
-                <span class="stat-number">{{ len .Site.RegularPages }}</span>
-                <span class="stat-label">總報告</span>
+                <div class="stat-icon">🔍</div>
+                <div class="stat-content">
+                    <span class="stat-number">30</span>
+                    <span class="stat-label">深度分析</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-content">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">技術關鍵字</span>
+                </div>
             </div>
         </div>
-        {{ end }}
-    </section>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta">
+            <a href="{{ "sessions/enhanced.html" | relURL }}" class="cta-primary">
+                <span class="cta-icon">🔍</span>
+                <span class="cta-text">探索報告</span>
+            </a>
+            <a href="{{ "categories/trends.html" | relURL }}" class="cta-secondary">
+                <span class="cta-icon">📈</span>
+                <span class="cta-text">技術趨勢</span>
+            </a>
+        </div>
+    </div>
+</section>
 
     <!-- 趨勢分析主要內容 -->
     <section class="trends-content section-block">

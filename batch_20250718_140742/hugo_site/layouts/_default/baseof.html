@@ -18,55 +18,69 @@
     <style>
         /* Critical CSS - Above the fold styles */
         :root {
-            --primary: #3a86ff;
-            --primary-dark: #0048b3;
-            --secondary: #00bfff;
-            --text: #2d3748;
-            --text-light: #475569;
-            --bg: #f0f4f8;
-            --card: #fff;
-            --border: #e2e8f0;
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            --radius-md: 12px;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #f9fafb;
+            --card: #ffffff;
+            --border: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-md: 0.5rem;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --primary: #4b93ff;
-                --text: #e2e8f0;
-                --text-light: #cbd5e1;
-                --bg: #121825;
-                --card: #1e293b;
-                --border: #334155;
-                --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+                --primary: #818cf8;
+                --text: #f9fafb;
+                --text-light: #d1d5db;
+                --bg: #111827;
+                --card: #1f2937;
+                --border: #374151;
+                --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+                --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
             }
         }
 
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         body {
-            font-family: 'Inter', 'Roboto', 'Microsoft JhengHei', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Noto Sans TC', 'Inter', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
             padding: 0;
-            line-height: 1.7;
+            line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        .site-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1rem;
         }
 
         .site-header {
             background: var(--card);
-            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 50;
+        }
+
+        .main-content {
+            flex: 1;
         }
     </style>
 
@@ -103,49 +117,64 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}">
 
     <!-- Theme Color -->
-    <meta name="theme-color" content="#3a86ff">
-    <meta name="msapplication-TileColor" content="#3a86ff">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="msapplication-TileColor" content="#6366f1">
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "css/modern-styles.css" | relURL }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body class="template-{{ .Site.Params.template_style }} hugo-site">
-    <div class="container">
+    <div class="site-wrapper">
         {{ partial "header.html" . }}
 
-        <main class="content" id="main-content" role="main">
+        <main class="main-content" id="main-content" role="main">
             {{ block "main" . }}{{ end }}
         </main>
 
         {{ partial "footer.html" . }}
     </div>
 
-    <!-- JavaScript - Optimized loading -->
+    <!-- JavaScript for Interactive Features -->
     <script>
         // Remove no-js class immediately
         document.documentElement.classList.remove('no-js');
 
-        // Critical JavaScript for immediate functionality
-        (function() {
-            // Theme detection and application
-            const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        // Navigation functionality
+        function initializeNavigation() {
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
 
-            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                document.body.classList.add('dark-theme');
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
             }
-        })();
-    </script>
+        }
 
-    <!-- Load main JavaScript asynchronously -->
-    <script src="{{ "js/main.js" | relURL }}" defer></script>
-
-    <!-- Service Worker for caching (if available) -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/sw.js').catch(function() {
-                    // Service worker registration failed, continue without it
+        // Smooth scrolling functionality
+        function initializeSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 });
             });
         }
+
+        // Initialize all functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeNavigation();
+            initializeSmoothScrolling();
+        });
     </script>
 </body>
 </html>
